@@ -153,15 +153,15 @@ const Index = () => {
         <div className="container flex h-20 items-center justify-between">
           <div className="flex items-center gap-3">
             <img 
-              src="https://cdn-ru.bitrix24.ru/b26317548/landing/3d6/3d6a5576d30030f1b39f073d86b8c3dd/logopugin3_photoroom_1x.png" 
+              src="https://cdn-ru.bitrix24.ru/b26317548/landing/0f1/0f1a35885eecbff82ff151d8ecf3499f/logopugin5_photoroom_1x.png" 
               alt="Пугин и партнеры" 
-              className="h-14 w-auto"
+              className="h-16 w-auto"
             />
           </div>
           <nav className="hidden lg:flex gap-8">
             <a href="#services" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Услуги</a>
-            <a href="#how-we-work" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Процесс</a>
             <a href="#cases" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Кейсы</a>
+            <a href="#testimonials" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Отзывы</a>
             <a href="#bots" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Боты</a>
             <a href="#contact" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Контакты</a>
           </nav>
@@ -285,18 +285,20 @@ const Index = () => {
                 key={index}
                 className="group relative"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500" />
-                <div className="relative h-full bg-card p-6 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300">
+                <div className="absolute -inset-0.5 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-lg opacity-0 group-hover:opacity-60 transition duration-500 animate-gradient bg-[length:200%_200%]" />
+                <div className="relative h-full bg-gradient-to-br from-card via-card to-accent/5 p-8 rounded-3xl border-2 border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20">
                   <div className="flex flex-col h-full">
-                    <div className="w-14 h-14 bg-gradient-to-br from-accent/10 to-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <Icon name={service.icon} className="h-7 w-7 text-accent" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-accent/20">
+                      <Icon name={service.icon} className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold mb-2 text-foreground">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4 flex-grow">{service.description}</p>
-                    <ul className="space-y-1.5">
+                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed">{service.description}</p>
+                    <ul className="space-y-2.5">
                       {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start text-xs text-muted-foreground">
-                          <Icon name="Check" className="h-3.5 w-3.5 text-accent mr-1.5 flex-shrink-0 mt-0.5" />
+                        <li key={idx} className="flex items-start text-sm text-muted-foreground">
+                          <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mr-2.5 flex-shrink-0 mt-0.5">
+                            <Icon name="Check" className="h-3 w-3 text-accent" />
+                          </div>
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -463,36 +465,38 @@ const Index = () => {
                 key={index}
                 className="group relative"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500" />
-                <div className="relative h-full bg-card rounded-3xl border-2 border-border hover:border-accent/50 transition-all duration-300 overflow-hidden">
+                <div className="absolute -inset-1 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500 animate-gradient bg-[length:200%_200%]" />
+                <div className="relative h-full bg-gradient-to-br from-card via-card to-primary/5 rounded-3xl border-2 border-border hover:border-accent/50 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-accent/20">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-2xl" />
                   
-                  <div className="relative p-6 flex flex-col h-full">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-14 h-14 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Icon name={caseItem.icon} className="h-7 w-7 text-accent" />
+                  <div className="relative p-8 flex flex-col h-full">
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-accent/20">
+                        <Icon name={caseItem.icon} className="h-8 w-8 text-white" />
                       </div>
-                      <Badge variant="outline" className="text-xs">{caseItem.category}</Badge>
+                      <Badge variant="outline" className="text-xs border-accent/30">{caseItem.category}</Badge>
                     </div>
                     
-                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+                    <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-accent transition-colors">
                       {caseItem.title}
                     </h3>
                     
-                    <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">
+                    <p className="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed">
                       {caseItem.description}
                     </p>
                     
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-sm">
-                        <Icon name="DollarSign" className="h-4 w-4 text-accent" />
-                        <span className="font-semibold text-foreground">{caseItem.amount}</span>
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 text-sm bg-accent/5 p-3 rounded-xl">
+                        <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                          <Icon name="DollarSign" className="h-4 w-4 text-accent" />
+                        </div>
+                        <span className="font-bold text-foreground">{caseItem.amount}</span>
                       </div>
                       
-                      <div className="bg-gradient-to-r from-accent/10 to-primary/10 border-l-4 border-accent p-3 rounded-lg">
-                        <div className="flex items-start gap-2">
-                          <Icon name="CheckCircle2" className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                          <p className="text-xs font-semibold text-foreground">{caseItem.result}</p>
+                      <div className="bg-gradient-to-br from-accent/10 via-primary/5 to-accent/5 border-2 border-accent/20 p-4 rounded-xl">
+                        <div className="flex items-start gap-3">
+                          <Icon name="CheckCircle2" className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                          <p className="text-sm font-semibold text-foreground">{caseItem.result}</p>
                         </div>
                       </div>
                     </div>
@@ -511,7 +515,167 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-24 relative overflow-hidden bg-muted/30">
+      <section id="testimonials" className="py-24 relative bg-background overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl" />
+        
+        <div className="container relative z-10">
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Отзывы клиентов</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Что говорят о нас клиенты
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Реальные отзывы людей, которым мы помогли решить их юридические вопросы
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Анна Соколова',
+                role: 'Владелец ООО',
+                text: 'Помогли выиграть арбитражный спор на 5 млн рублей. Профессиональный подход на каждом этапе. Рекомендую!',
+                rating: 5,
+                avatar: '👩‍💼'
+              },
+              {
+                name: 'Дмитрий Петров',
+                role: 'Индивидуальный предприниматель',
+                text: 'Быстро зарегистрировали ИП, помогли выбрать систему налогообложения. Всё объяснили простым языком.',
+                rating: 5,
+                avatar: '👨‍💻'
+              },
+              {
+                name: 'Елена Волкова',
+                role: 'Частное лицо',
+                text: 'Решили семейный спор по разделу имущества. Получила справедливую долю, спасибо за поддержку!',
+                rating: 5,
+                avatar: '👩'
+              },
+              {
+                name: 'Сергей Иванов',
+                role: 'Директор компании',
+                text: 'Составили договор с контрагентом, провели правовую экспертизу. Всё чётко и в срок.',
+                rating: 5,
+                avatar: '👨‍💼'
+              },
+              {
+                name: 'Ольга Морозова',
+                role: 'Владелец недвижимости',
+                text: 'Сопровождали сделку с квартирой, проверили юридическую чистоту. Спокойна за свою покупку!',
+                rating: 5,
+                avatar: '👩‍🦰'
+              },
+              {
+                name: 'Александр Ким',
+                role: 'Руководитель отдела',
+                text: 'Выиграли трудовой спор, восстановили на работе с компенсацией. Профессионалы своего дела!',
+                rating: 5,
+                avatar: '👨'
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="group relative">
+                <div className="absolute -inset-1 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500" />
+                <div className="relative h-full bg-card p-8 rounded-3xl border-2 border-border hover:border-accent/50 transition-all hover:shadow-xl">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-2xl shadow-lg">
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground">{testimonial.name}</h4>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-1 mb-4">
+                    {Array(testimonial.rating).fill(0).map((_, i) => (
+                      <Icon key={i} name="Star" className="h-4 w-4 text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-muted-foreground leading-relaxed italic">
+                    "{testimonial.text}"
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="benefits" className="py-24 relative bg-muted/30 overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        
+        <div className="container relative z-10">
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Почему мы?</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Преимущества работы с нами
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Мы создали сервис, где клиент получает максимум результата и комфорта
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: 'Shield',
+                title: 'Гарантия результата',
+                description: 'Работаем на результат. Если не выиграем — вернём деньги',
+                color: 'from-blue-500 to-cyan-500'
+              },
+              {
+                icon: 'Clock',
+                title: 'Быстрое решение',
+                description: 'Оперативно реагируем на запросы, держим в курсе 24/7',
+                color: 'from-purple-500 to-pink-500'
+              },
+              {
+                icon: 'Wallet',
+                title: 'Прозрачные цены',
+                description: 'Фиксируем стоимость в договоре, никаких скрытых платежей',
+                color: 'from-green-500 to-emerald-500'
+              },
+              {
+                icon: 'Award',
+                title: '10 лет опыта',
+                description: 'Более 300 успешных дел, работаем с 2015 года',
+                color: 'from-orange-500 to-red-500'
+              },
+              {
+                icon: 'Users',
+                title: 'Личный подход',
+                description: 'Каждый клиент получает персонального юриста',
+                color: 'from-indigo-500 to-blue-500'
+              },
+              {
+                icon: 'Zap',
+                title: 'Инновации',
+                description: 'Telegram-боты для мгновенного получения выписок',
+                color: 'from-yellow-500 to-orange-500'
+              }
+            ].map((benefit, index) => (
+              <div key={index} className="group relative">
+                <div className={`absolute -inset-1 bg-gradient-to-br ${benefit.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500`} />
+                <div className="relative h-full bg-card p-8 rounded-3xl border-2 border-border hover:border-accent/50 transition-all hover:shadow-2xl">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-xl`}>
+                    <Icon name={benefit.icon} className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-24 relative overflow-hidden bg-background">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
