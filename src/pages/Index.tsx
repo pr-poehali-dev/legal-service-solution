@@ -175,11 +175,11 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
         <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
           <div className="relative h-full w-full">
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/50 to-background z-10" />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/30 to-background z-10" />
             <img 
               src="https://cdn-ru.bitrix24.ru/b26317548/landing/729/729082975a5bcde7c7538c6ced035df2/advogado_embacado_de_vista_frontal_trabalhando_fotor_20250716104132_2x_1x.jpg"
               alt="Юрист за работой"
-              className="h-full w-full object-cover opacity-90"
+              className="h-full w-full object-cover opacity-100 brightness-110"
             />
           </div>
         </div>
