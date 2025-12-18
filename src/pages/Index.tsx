@@ -952,6 +952,40 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          <div className="md:hidden">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={20}
+              slidesPerView={1.2}
+              centeredSlides={true}
+              navigation
+              pagination={{ clickable: true }}
+              className="!pb-12"
+            >
+              {benefits.map((benefit, index) => (
+                <SwiperSlide key={index}>
+                  <div className="relative h-full">
+                    <div className={`absolute -inset-1 bg-gradient-to-br ${benefit.color} rounded-3xl blur-xl opacity-60`} />
+                    <div className="relative h-full bg-card p-6 rounded-3xl border-2 border-accent/30 min-h-[220px]">
+                      <div className={`w-14 h-14 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-4 shadow-xl`}>
+                        <Icon name={benefit.icon} className="h-7 w-7 text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2 text-foreground">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+              </>
+            );
+          })()}
         </div>
       </section>
 
