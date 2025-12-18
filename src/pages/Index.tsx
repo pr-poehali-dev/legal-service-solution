@@ -21,617 +21,542 @@ const Index = () => {
     setFormData({ name: '', phone: '', email: '', message: '' });
   };
 
-  const practices = [
+  const services = [
+    {
+      icon: 'Gavel',
+      title: 'Судебная защита',
+      description: 'Представительство в судах, арбитражные споры, взыскание долгов',
+      features: ['Споры по сделкам', 'Принудительное исполнение', 'Ответы налоговой']
+    },
+    {
+      icon: 'FileSignature',
+      title: 'Договоры и контрагенты',
+      description: 'Проверка юридической чистоты и налоговых оговорок',
+      features: ['Правовая экспертиза', 'Аудит контрагентов', 'Налоговые оговорки']
+    },
     {
       icon: 'Building2',
-      title: 'Корпоративное право',
-      description: 'M&A, реструктуризация, корпоративное управление',
-      cases: '120+ сделок'
+      title: 'Регистрация бизнеса',
+      description: 'ООО, ИП, НКО, АНО, фонды, ТСЖ, СНТ',
+      features: ['Бесплатная регистрация', 'Выбор налоговой системы', 'Полное сопровождение']
     },
     {
-      icon: 'Landmark',
-      title: 'Арбитражные споры',
-      description: 'Защита интересов в судах всех инстанций',
-      cases: '200+ выигранных дел'
-    },
-    {
-      icon: 'FileCheck',
-      title: 'Налоговое право',
-      description: 'Налоговое планирование и споры с ФНС',
-      cases: '5 млрд ₽ защищено'
-    },
-    {
-      icon: 'Scale',
-      title: 'Разрешение споров',
-      description: 'Медиация, арбитраж, судебная защита',
-      cases: '85% досудебных урегулирований'
+      icon: 'Home',
+      title: 'Недвижимость',
+      description: 'Сопровождение сделок и проверка юридической чистоты',
+      features: ['Проверка перед покупкой', 'Аренда и субаренда', 'Налоговые последствия']
     },
     {
       icon: 'Users',
-      title: 'Трудовое право',
-      description: 'Сопровождение HR-процессов и трудовые споры',
-      cases: '300+ компаний'
+      title: 'Трудовые отношения',
+      description: 'Споры с работодателями, смена директоров',
+      features: ['Споры с работодателем', 'Зарплатные налоги', 'Смена руководства']
     },
     {
-      icon: 'Shield',
-      title: 'Антимонопольное право',
-      description: 'Защита от ФАС и сопровождение проверок',
-      cases: '50+ защит в год'
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Алексей Морозов',
-      position: 'Генеральный директор',
-      company: 'ООО "ТехноЛогистика"',
-      text: 'Команда Пугин и партнеры помогла успешно завершить сделку M&A на сумму 800 млн рублей. Высочайший уровень экспертизы.',
-      rating: 5
+      icon: 'Heart',
+      title: 'Семейные споры',
+      description: 'Раздел имущества, алименты, лишение родительских прав',
+      features: ['Развод', 'Раздел имущества', 'Брачный договор']
     },
     {
-      name: 'Мария Соколова',
-      position: 'Финансовый директор',
-      company: 'Группа компаний "Интеграл"',
-      text: 'Выиграли налоговый спор на 150 млн рублей благодаря блестящей стратегии юристов. Рекомендую!',
-      rating: 5
+      icon: 'Gift',
+      title: 'Наследство и дарение',
+      description: 'Оформление наследства и дарственных',
+      features: ['Оформление наследства', 'Дарственные', 'Налоговые последствия']
     },
     {
-      name: 'Дмитрий Волков',
-      position: 'Председатель правления',
-      company: 'АО "СтройИнвест"',
-      text: 'Профессиональное сопровождение арбитражного спора от первой инстанции до кассации. Победили!',
-      rating: 5
-    }
-  ];
-
-  const blogPosts = [
-    {
-      title: 'Новые правила валютного контроля: что изменилось для бизнеса',
-      date: '15 декабря 2024',
-      category: 'Валютное регулирование',
-      readTime: '8 мин',
-      excerpt: 'Разбираем ключевые изменения в валютном законодательстве и их влияние на внешнеэкономическую деятельность компаний.'
-    },
-    {
-      title: 'Корпоративные конфликты: превентивные меры защиты',
-      date: '10 декабря 2024',
-      category: 'Корпоративное право',
-      readTime: '12 мин',
-      excerpt: 'Как защитить бизнес от корпоративных захватов и конфликтов между акционерами. Практические рекомендации.'
-    },
-    {
-      title: 'Налоговая реконструкция: риски и возможности',
-      date: '5 декабря 2024',
-      category: 'Налоговое право',
-      readTime: '10 мин',
-      excerpt: 'Анализируем судебную практику применения налоговой реконструкции и способы минимизации рисков.'
+      icon: 'ShieldCheck',
+      title: 'Защита прав потребителей',
+      description: 'Возврат товаров, компенсации, споры с продавцами',
+      features: ['Возврат товара', 'Компенсации', 'Судебная защита']
     }
   ];
 
   const bots = [
     {
       icon: 'Bot',
-      title: 'Юридический ассистент',
-      description: 'Первичная консультация по вашему вопросу 24/7',
-      status: 'Доступен'
+      title: 'ЕГРН Бот',
+      handle: '@EGRN_GlavbuhBot',
+      description: 'Мгновенные выписки из реестра недвижимости',
+      status: 'Работает 24/7'
     },
     {
-      icon: 'FileSearch',
-      title: 'Анализ договоров',
-      description: 'Проверка договоров на риски за 5 минут',
-      status: 'Бета-тест'
-    },
-    {
-      icon: 'Calculator',
-      title: 'Калькулятор издержек',
-      description: 'Расчет судебных расходов и госпошлины',
-      status: 'Доступен'
+      icon: 'Building',
+      title: 'ЕГРЮЛ Бот',
+      handle: '@GlavbuhVL_BOT',
+      description: 'Проверка юридических лиц и ИП в один клик',
+      status: 'Работает 24/7'
     }
+  ];
+
+  const stats = [
+    { value: '10+', label: 'лет опыта', description: 'С 2015 года' },
+    { value: '300+', label: 'клиентов', description: 'Довольны результатом' },
+    { value: '96%', label: 'успеха', description: 'Выигранных дел' },
+    { value: '100%', label: 'гарантия', description: 'Результата' }
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-20 items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">П</span>
+            <div className="relative w-12 h-12">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-xl blur-sm opacity-50" />
+              <div className="relative w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-2xl font-bold text-white">П</span>
+              </div>
             </div>
             <div>
-              <div className="text-xl font-bold">Пугин и партнеры</div>
-              <div className="text-xs text-muted-foreground">Юридическая компания</div>
+              <div className="text-xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Пугин и партнеры</div>
+              <div className="text-xs text-muted-foreground">С 2015 года • Гарантия результата</div>
             </div>
           </div>
           <nav className="hidden lg:flex gap-8">
-            <a href="#practices" className="text-sm font-medium hover:text-accent transition-colors">Практики</a>
-            <a href="#how-we-work" className="text-sm font-medium hover:text-accent transition-colors">Процесс</a>
-            <a href="#bots" className="text-sm font-medium hover:text-accent transition-colors">Боты</a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-accent transition-colors">Отзывы</a>
-            <a href="#cases" className="text-sm font-medium hover:text-accent transition-colors">Кейсы</a>
-            <a href="#blog" className="text-sm font-medium hover:text-accent transition-colors">Блог</a>
-            <a href="#contact" className="text-sm font-medium hover:text-accent transition-colors">Контакты</a>
+            <a href="#services" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Услуги</a>
+            <a href="#how-we-work" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Процесс</a>
+            <a href="#bots" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Боты</a>
+            <a href="#contact" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Контакты</a>
           </nav>
-          <Button className="bg-accent hover:bg-accent/90">
-            Консультация
+          <Button className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white shadow-lg">
+            Бесплатная консультация
           </Button>
         </div>
       </header>
 
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-accent -z-10" />
-        <div className="absolute inset-0 opacity-10 -z-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
-        <div className="container">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        
+        <div className="container relative z-10">
           <div className="max-w-4xl animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8 border border-white/20">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-white text-sm">Работаем с 2008 года</span>
+            <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-8 border border-accent/20">
+              <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-foreground">Работаем с 2015 года • 10 лет успешной практики</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
-              Решаем сложные<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
-                юридические задачи
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-foreground">Юридические услуги</span>
+              <br />
+              <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+                с гарантией результата
               </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl">
-              Комплексное сопровождение бизнеса, арбитражные споры и корпоративные сделки любой сложности
+            
+            <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-2xl">
+              Комплексное юридическое сопровождение бизнеса и частных лиц. Более 300 довольных клиентов
             </p>
-            <div className="flex flex-wrap gap-4 mb-12">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8">
+            
+            <div className="flex flex-wrap gap-4 mb-16">
+              <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-lg px-8 shadow-xl shadow-accent/20">
                 <Icon name="Phone" className="mr-2 h-5 w-5" />
-                +7 (495) 120-30-40
+                +7 (423) 200-10-20
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8">
-                Наши практики
+              <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5 text-lg px-8">
+                Наши услуги
                 <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
               </Button>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-              <div>
-                <div className="text-4xl font-bold text-white mb-1">16</div>
-                <div className="text-sm text-white/70">лет на рынке</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-white mb-1">500+</div>
-                <div className="text-sm text-white/70">успешных дел</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-white mb-1">15 млрд ₽</div>
-                <div className="text-sm text-white/70">защищено активов</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-white mb-1">92%</div>
-                <div className="text-sm text-white/70">положительных решений</div>
-              </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {stats.map((stat, index) => (
+                <div 
+                  key={index}
+                  className="relative group"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
+                  <div className="relative bg-card/50 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/50 transition-all">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm font-medium text-foreground mb-0.5">{stat.label}</div>
+                    <div className="text-xs text-muted-foreground">{stat.description}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section id="practices" className="py-24 relative">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
+      <section id="services" className="py-24 relative bg-muted/30">
         <div className="container">
-          <div className="max-w-2xl mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Наши практики</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Экспертиза в ключевых областях права</h2>
+          <div className="max-w-2xl mb-16 text-center mx-auto">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Наши услуги</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Полный спектр юридических услуг
+            </h2>
             <p className="text-lg text-muted-foreground">
-              Специализируемся на сложных делах, требующих глубокой экспертизы и индивидуального подхода
+              От регистрации бизнеса до судебных споров — решаем задачи любой сложности
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {practices.map((practice, index) => (
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2"
+                className="group relative"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-all" />
-                <div className="relative">
-                  <div className="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Icon name={practice.icon} className="h-8 w-8 text-accent" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">{practice.title}</h3>
-                  <p className="text-muted-foreground mb-4">{practice.description}</p>
-                  <div className="flex items-center gap-2 text-sm font-medium text-accent">
-                    <Icon name="TrendingUp" className="h-4 w-4" />
-                    {practice.cases}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500" />
+                <div className="relative h-full bg-card p-6 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300">
+                  <div className="flex flex-col h-full">
+                    <div className="w-14 h-14 bg-gradient-to-br from-accent/10 to-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <Icon name={service.icon} className="h-7 w-7 text-accent" />
+                    </div>
+                    <h3 className="text-lg font-bold mb-2 text-foreground">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 flex-grow">{service.description}</p>
+                    <ul className="space-y-1.5">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start text-xs text-muted-foreground">
+                          <Icon name="Check" className="h-3.5 w-3.5 text-accent mr-1.5 flex-shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-accent/10 via-primary/10 to-accent/10 px-6 py-4 rounded-2xl border border-accent/20">
+              <Icon name="Gift" className="h-6 w-6 text-accent" />
+              <span className="font-semibold text-foreground">Специальное предложение:</span>
+              <span className="text-muted-foreground">Бесплатная регистрация ИП и ООО</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="how-we-work" className="py-24 bg-muted/30">
+      <section id="how-we-work" className="py-24 relative overflow-hidden bg-background">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl -z-10" />
         <div className="container">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Как мы работаем</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Четыре шага к результату</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Простой путь к решению
+            </h2>
             <p className="text-lg text-muted-foreground">
-              Проверенная методология ведения дел от первой консультации до успешного завершения
+              От первого звонка до победы в деле — прозрачный процесс работы
             </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                step: '01',
-                title: 'Анализ',
-                description: 'Глубокое изучение вашей ситуации, документов и перспектив дела',
-                icon: 'Search'
-              },
-              {
-                step: '02',
-                title: 'Стратегия',
-                description: 'Разработка индивидуальной стратегии с учетом всех рисков и возможностей',
-                icon: 'Target'
-              },
-              {
-                step: '03',
-                title: 'Действия',
-                description: 'Реализация стратегии: переговоры, подготовка документов, судебная защита',
-                icon: 'Zap'
-              },
-              {
-                step: '04',
-                title: 'Победа',
-                description: 'Достижение поставленных целей и максимально выгодного результата',
-                icon: 'Trophy'
-              }
-            ].map((item, index) => (
-              <div key={index} className="relative">
-                <div className="bg-card p-8 rounded-2xl border-2 border-accent/20 hover:border-accent transition-all duration-300 h-full">
-                  <div className="text-6xl font-bold text-accent/20 mb-4">{item.step}</div>
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon name={item.icon} className="h-6 w-6 text-accent" />
+          
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-accent via-primary to-accent -translate-x-1/2 hidden lg:block" />
+            
+            <div className="space-y-12">
+              {[
+                {
+                  step: '01',
+                  title: 'Консультация',
+                  description: 'Бесплатный первичный анализ вашей ситуации. Оцениваем перспективы и разрабатываем стратегию.',
+                  icon: 'Phone',
+                  position: 'left'
+                },
+                {
+                  step: '02',
+                  title: 'Подготовка',
+                  description: 'Собираем документы, готовим правовую позицию. Составляем договор с прозрачными условиями.',
+                  icon: 'FileText',
+                  position: 'right'
+                },
+                {
+                  step: '03',
+                  title: 'Действия',
+                  description: 'Переговоры, судебные заседания, работа с контрагентами. Держим вас в курсе на каждом этапе.',
+                  icon: 'Zap',
+                  position: 'left'
+                },
+                {
+                  step: '04',
+                  title: 'Результат',
+                  description: 'Достигаем поставленной цели. Гарантируем качество и защиту ваших интересов.',
+                  icon: 'Trophy',
+                  position: 'right'
+                }
+              ].map((item, index) => (
+                <div key={index} className={`relative flex items-center ${item.position === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+                  <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-full items-center justify-center border-4 border-background shadow-xl z-10">
+                    <Icon name={item.icon} className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  
+                  <div className={`w-full lg:w-[calc(50%-2rem)] ${item.position === 'right' ? 'lg:pl-8' : 'lg:pr-8'}`}>
+                    <div className="group relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition duration-500" />
+                      <div className="relative bg-card p-8 rounded-2xl border-2 border-border hover:border-accent/50 transition-all shadow-lg">
+                        <div className="flex items-start gap-4 lg:hidden mb-4">
+                          <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                            <Icon name={item.icon} className="h-6 w-6 text-white" />
+                          </div>
+                          <div className="text-5xl font-bold text-accent/20">{item.step}</div>
+                        </div>
+                        <div className="hidden lg:block text-6xl font-bold text-accent/20 mb-4">{item.step}</div>
+                        <h3 className="text-2xl font-bold mb-3 text-foreground">{item.title}</h3>
+                        <p className="text-muted-foreground">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                {index < 3 && (
-                  <Icon name="ArrowRight" className="hidden md:block absolute top-1/2 -right-4 h-6 w-6 text-accent/50 -translate-y-1/2" />
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="bots" className="py-24">
+      <section id="bots" className="py-24 bg-muted/30">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Цифровые инструменты</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии для вашего удобства</h2>
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Telegram боты</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Получите документы мгновенно
+            </h2>
             <p className="text-lg text-muted-foreground">
-              Используем современные решения для повышения скорости и качества сервиса
+              Наши Telegram-боты работают 24/7 для быстрого получения выписок
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {bots.map((bot, index) => (
               <div
                 key={index}
-                className="relative group"
+                className="group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity blur-xl" />
-                <Card className="relative border-2 border-border group-hover:border-accent transition-all duration-300">
-                  <CardHeader className="text-center pb-4">
-                    <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                      <Icon name={bot.icon} className="h-10 w-10 text-white" />
-                    </div>
-                    <CardTitle className="text-xl">{bot.title}</CardTitle>
-                    <CardDescription className="text-base">{bot.description}</CardDescription>
+                <div className="absolute -inset-1 bg-gradient-to-r from-accent via-primary to-accent rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-500 animate-gradient bg-[length:200%_auto]" />
+                <div className="relative">
+                  <Card className="border-2 border-border hover:border-accent/50 transition-all duration-300 overflow-hidden">
+                    <div className="h-2 bg-gradient-to-r from-accent via-primary to-accent animate-gradient bg-[length:200%_auto]" />
+                    <CardHeader className="text-center pb-4">
+                      <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-2xl shadow-accent/20">
+                        <Icon name={bot.icon} className="h-12 w-12 text-white" />
+                      </div>
+                      <CardTitle className="text-2xl text-foreground">{bot.title}</CardTitle>
+                      <div className="inline-block bg-muted px-3 py-1 rounded-full text-sm font-mono text-accent my-2">
+                        {bot.handle}
+                      </div>
+                      <CardDescription className="text-base text-muted-foreground">{bot.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-center pb-6">
+                      <Badge className="bg-green-500/10 text-green-600 border-green-500/30 px-4 py-1">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
+                        {bot.status}
+                      </Badge>
+                      <Button className="w-full mt-4 bg-accent hover:bg-accent/90 text-white">
+                        <Icon name="MessageCircle" className="mr-2 h-4 w-4" />
+                        Открыть в Telegram
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-24 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        
+        <div className="container relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Свяжитесь с нами</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+                Бесплатная консультация
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Оставьте заявку или позвоните — ответим на все вопросы в течение 15 минут
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition" />
+                  <Card className="relative border-2 border-border hover:border-accent/50 transition-all">
+                    <CardHeader>
+                      <CardTitle className="text-2xl flex items-center gap-3 text-foreground">
+                        <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center">
+                          <Icon name="Phone" className="h-6 w-6 text-white" />
+                        </div>
+                        Телефон
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <a href="tel:+74232001020" className="text-2xl font-bold text-accent hover:text-primary transition-colors">
+                        +7 (423) 200-10-20
+                      </a>
+                      <p className="text-sm text-muted-foreground mt-2">Звоните в любое время</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition" />
+                  <Card className="relative border-2 border-border hover:border-accent/50 transition-all">
+                    <CardHeader>
+                      <CardTitle className="text-2xl flex items-center gap-3 text-foreground">
+                        <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center">
+                          <Icon name="Mail" className="h-6 w-6 text-white" />
+                        </div>
+                        Email
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <a href="mailto:info@puginpartners.ru" className="text-xl font-semibold text-accent hover:text-primary transition-colors">
+                        info@puginpartners.ru
+                      </a>
+                      <p className="text-sm text-muted-foreground mt-2">Ответим в течение часа</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition" />
+                  <Card className="relative border-2 border-border hover:border-accent/50 transition-all">
+                    <CardHeader>
+                      <CardTitle className="text-2xl flex items-center gap-3 text-foreground">
+                        <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center">
+                          <Icon name="MapPin" className="h-6 w-6 text-white" />
+                        </div>
+                        Адрес
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-muted-foreground">
+                      <p className="font-semibold mb-1 text-foreground">г. Владивосток</p>
+                      <p>ул. Океанский проспект, 17</p>
+                      <p className="text-sm mt-2">Пн-Пт: 9:00 - 19:00, Сб: 10:00 - 16:00</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition" />
+                <Card className="relative border-2 border-border shadow-2xl">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-foreground">Оставьте заявку</CardTitle>
+                    <CardDescription className="text-base">Мы перезвоним в течение 15 минут</CardDescription>
                   </CardHeader>
-                  <CardContent className="text-center">
-                    <Badge className="bg-accent/10 text-accent border-accent/30">{bot.status}</Badge>
+                  <CardContent>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <Input
+                          placeholder="Ваше имя"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          required
+                          className="h-12 border-2 focus:border-accent"
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="tel"
+                          placeholder="Телефон"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          required
+                          className="h-12 border-2 focus:border-accent"
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="email"
+                          placeholder="Email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          required
+                          className="h-12 border-2 focus:border-accent"
+                        />
+                      </div>
+                      <div>
+                        <Textarea
+                          placeholder="Опишите вашу ситуацию"
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          rows={4}
+                          required
+                          className="border-2 focus:border-accent"
+                        />
+                      </div>
+                      <Button type="submit" className="w-full h-12 bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-lg shadow-xl shadow-accent/20">
+                        <Icon name="Send" className="mr-2 h-5 w-5" />
+                        Отправить заявку
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center">
+                        Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                      </p>
+                    </form>
                   </CardContent>
                 </Card>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="testimonials" className="py-24 bg-muted/30">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Отзывы клиентов</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Нам доверяют лидеры рынка</h2>
-            <p className="text-lg text-muted-foreground">
-              Более 200 компаний выбрали нас своим надежным юридическим партнером
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-accent">
-                <CardHeader>
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" className="h-5 w-5 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  <CardTitle className="text-lg">{testimonial.name}</CardTitle>
-                  <CardDescription className="text-sm">
-                    <div className="font-medium">{testimonial.position}</div>
-                    <div>{testimonial.company}</div>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground italic leading-relaxed">"{testimonial.text}"</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="cases" className="py-24 relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 -z-10" />
-        <div className="container">
-          <div className="max-w-2xl mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Наши достижения</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Успешные кейсы</h2>
-            <p className="text-lg text-muted-foreground">
-              Реальные примеры побед наших клиентов в сложнейших делах
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Защита от доначисления НДС на 450 млн ₽',
-                category: 'Налоговое право',
-                description: 'Оспорили решение ФНС о доначислении НДС. Победа в суде первой инстанции и апелляции.',
-                result: '450 млн ₽ экономии клиента',
-                icon: 'Shield'
-              },
-              {
-                title: 'Сопровождение M&A сделки 2,5 млрд ₽',
-                category: 'M&A',
-                description: 'Полное юридическое сопровождение покупки доли в крупной логистической компании.',
-                result: 'Сделка закрыта за 45 дней',
-                icon: 'Handshake'
-              },
-              {
-                title: 'Взыскание 180 млн ₽ долга',
-                category: 'Арбитражные споры',
-                description: 'Успешно взыскали задолженность по контракту через арбитраж и исполнительное производство.',
-                result: '100% возврат средств',
-                icon: 'CircleDollarSign'
-              }
-            ].map((caseItem, index) => (
-              <div
-                key={index}
-                className="group relative bg-gradient-to-br from-card to-card/80 rounded-2xl p-8 border-2 border-border hover:border-accent transition-all duration-300 hover:shadow-2xl"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-2xl -z-10" />
-                <Badge className="mb-4" variant="outline">{caseItem.category}</Badge>
-                <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Icon name={caseItem.icon} className="h-7 w-7 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{caseItem.title}</h3>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{caseItem.description}</p>
-                <div className="bg-accent/10 border-l-4 border-accent p-4 rounded-lg">
-                  <div className="flex items-start gap-2">
-                    <Icon name="CheckCircle2" className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                    <p className="text-sm font-semibold text-foreground">{caseItem.result}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="blog" className="py-24 bg-muted/30">
-        <div className="container">
-          <div className="max-w-2xl mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Экспертный блог</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Аналитика и новости права</h2>
-            <p className="text-lg text-muted-foreground">
-              Практические рекомендации и анализ изменений законодательства от наших экспертов
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border-2 hover:border-accent">
-                <div className="h-2 bg-gradient-to-r from-accent to-primary" />
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge variant="secondary">{post.category}</Badge>
-                    <span className="text-xs text-muted-foreground flex items-center gap-1">
-                      <Icon name="Clock" className="h-3 w-3" />
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <CardTitle className="text-xl group-hover:text-accent transition-colors leading-tight">
-                    {post.title}
-                  </CardTitle>
-                  <CardDescription className="flex items-center gap-2">
-                    <Icon name="Calendar" className="h-4 w-4" />
-                    {post.date}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{post.excerpt}</p>
-                  <div className="flex items-center text-accent font-medium text-sm group-hover:gap-3 gap-2 transition-all">
-                    Читать статью
-                    <Icon name="ArrowRight" className="h-4 w-4" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-accent -z-10" />
-        <div className="absolute inset-0 opacity-10 -z-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
-        <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <Badge className="mb-4 bg-white/20 text-white border-white/30">Свяжитесь с нами</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Бесплатная консультация</h2>
-              <p className="text-xl text-white/90">
-                Оставьте заявку — мы перезвоним в течение 30 минут и проведем первичный анализ вашей ситуации
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-white/10 border-white/20 backdrop-blur-lg">
-                <CardHeader>
-                  <CardTitle className="text-white text-2xl">Наши контакты</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6 text-white/90">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Icon name="Phone" className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white mb-1">Телефон</p>
-                      <p className="text-lg">+7 (495) 120-30-40</p>
-                      <p>+7 (495) 120-30-41</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Icon name="Mail" className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white mb-1">Email</p>
-                      <p>info@puginpartners.ru</p>
-                      <p>office@puginpartners.ru</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Icon name="MapPin" className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white mb-1">Офис</p>
-                      <p>Москва, Пресненская наб., 12</p>
-                      <p>Башня Федерация, 42 этаж</p>
-                      <p className="mt-2 text-sm">Пн-Пт: 9:00 - 20:00, Сб: 10:00 - 17:00</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white border-0 shadow-2xl">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Оставьте заявку</CardTitle>
-                  <CardDescription className="text-base">Мы свяжемся с вами в ближайшее время</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <Input
-                        placeholder="Ваше имя"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        type="tel"
-                        placeholder="Телефон"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        type="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    <div>
-                      <Textarea
-                        placeholder="Опишите вашу ситуацию"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        rows={4}
-                        required
-                      />
-                    </div>
-                    <Button type="submit" className="w-full h-12 bg-accent hover:bg-accent/90 text-lg">
-                      <Icon name="Send" className="mr-2 h-5 w-5" />
-                      Отправить заявку
-                    </Button>
-                    <p className="text-xs text-muted-foreground text-center">
-                      Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="py-16 border-t bg-muted/30">
+      <footer className="py-12 border-t border-border/40 bg-muted/30">
         <div className="container">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="grid md:grid-cols-4 gap-12 mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                  <span className="text-xl font-bold text-white">П</span>
+                <div className="relative w-10 h-10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-lg blur-sm opacity-50" />
+                  <div className="relative w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
+                    <span className="text-xl font-bold text-white">П</span>
+                  </div>
                 </div>
                 <div>
-                  <div className="font-bold">Пугин и партнеры</div>
-                  <div className="text-xs text-muted-foreground">Юридическая компания</div>
+                  <div className="font-bold text-foreground">Пугин и партнеры</div>
+                  <div className="text-xs text-muted-foreground">С 2015 года</div>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Профессиональные юридические услуги для бизнеса с 2008 года
+                Юридические услуги с гарантией результата
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Практики</h4>
+              <h4 className="font-semibold mb-4 text-foreground">Услуги</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-accent transition-colors">Корпоративное право</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Арбитражные споры</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Налоговое право</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Трудовое право</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Судебная защита</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Регистрация бизнеса</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Недвижимость</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Семейные споры</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Компания</h4>
+              <h4 className="font-semibold mb-4 text-foreground">Компания</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-accent transition-colors">О нас</a></li>
                 <li><a href="#" className="hover:text-accent transition-colors">Команда</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Карьера</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Отзывы</a></li>
                 <li><a href="#" className="hover:text-accent transition-colors">Контакты</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Следите за нами</h4>
-              <div className="flex gap-3 mb-6">
-                <a href="#" className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center hover:bg-accent/20 transition-colors">
-                  <Icon name="Linkedin" className="h-5 w-5 text-accent" />
-                </a>
-                <a href="#" className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center hover:bg-accent/20 transition-colors">
-                  <Icon name="Send" className="h-5 w-5 text-accent" />
-                </a>
-              </div>
-              <p className="text-xs text-muted-foreground">
-                Подписывайтесь на наши каналы для получения актуальной правовой информации
-              </p>
+              <h4 className="font-semibold mb-4 text-foreground">Telegram боты</h4>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+                    <Icon name="Bot" className="h-4 w-4" />
+                    @EGRN_GlavbuhBot
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+                    <Icon name="Building" className="h-4 w-4" />
+                    @GlavbuhVL_BOT
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="pt-8 border-t text-center">
+          <div className="pt-8 border-t border-border/40 text-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 Пугин и партнеры. Все права защищены. | 
-              <a href="#" className="hover:text-accent transition-colors ml-1">Политика конфиденциальности</a>
+              © 2024 Пугин и партнеры. Все права защищены.
             </p>
           </div>
         </div>
