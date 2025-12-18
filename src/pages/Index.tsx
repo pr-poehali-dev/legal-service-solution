@@ -1,4 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay, EffectCards } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -7,6 +13,7 @@ import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -155,9 +162,10 @@ const Index = () => {
             <img 
               src="https://cdn-ru.bitrix24.ru/b26317548/landing/0f1/0f1a35885eecbff82ff151d8ecf3499f/logopugin5_photoroom_1x.png" 
               alt="Пугин и партнеры" 
-              className="h-16 w-auto"
+              className="h-12 md:h-16 w-auto"
             />
           </div>
+          
           <nav className="hidden lg:flex gap-8">
             <a href="#services" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Услуги</a>
             <a href="#cases" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Кейсы</a>
@@ -166,10 +174,72 @@ const Index = () => {
             <a href="#bots" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Боты</a>
             <a href="#contact" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Контакты</a>
           </nav>
-          <Button className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white shadow-lg">
+          
+          <Button className="hidden lg:flex bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white shadow-lg">
             Бесплатная консультация
           </Button>
+          
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="lg:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <Icon name={mobileMenuOpen ? "X" : "Menu"} className="h-6 w-6" />
+          </Button>
         </div>
+        
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-border/40 bg-background/98 backdrop-blur">
+            <nav className="container py-6 flex flex-col gap-4">
+              <a 
+                href="#services" 
+                className="text-base font-medium text-foreground hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Услуги
+              </a>
+              <a 
+                href="#cases" 
+                className="text-base font-medium text-foreground hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Кейсы
+              </a>
+              <a 
+                href="#testimonials" 
+                className="text-base font-medium text-foreground hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Отзывы
+              </a>
+              <a 
+                href="#benefits" 
+                className="text-base font-medium text-foreground hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Почему мы
+              </a>
+              <a 
+                href="#bots" 
+                className="text-base font-medium text-foreground hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Боты
+              </a>
+              <a 
+                href="#contact" 
+                className="text-base font-medium text-foreground hover:text-accent transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Контакты
+              </a>
+              <Button className="w-full bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white shadow-lg mt-4">
+                Бесплатная консультация
+              </Button>
+            </nav>
+          </div>
+        )}
       </header>
 
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
@@ -280,7 +350,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="hidden lg:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -308,6 +378,46 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="lg:hidden">
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1.2}
+              centeredSlides={true}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              className="!pb-12"
+            >
+              {services.map((service, index) => (
+                <SwiperSlide key={index}>
+                  <div className="group relative h-full">
+                    <div className="absolute -inset-0.5 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-lg opacity-60 animate-gradient bg-[length:200%_200%]" />
+                    <div className="relative h-full bg-gradient-to-br from-card via-card to-accent/5 p-6 rounded-3xl border-2 border-accent/30">
+                      <div className="flex flex-col h-full">
+                        <div className="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
+                          <Icon name={service.icon} className="h-7 w-7 text-white" />
+                        </div>
+                        <h3 className="text-lg font-bold mb-2 text-foreground">{service.title}</h3>
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{service.description}</p>
+                        <ul className="space-y-2">
+                          {service.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start text-xs text-muted-foreground">
+                              <div className="w-4 h-4 rounded-full bg-accent/10 flex items-center justify-center mr-2 flex-shrink-0 mt-0.5">
+                                <Icon name="Check" className="h-2.5 w-2.5 text-accent" />
+                              </div>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
           
           <div className="mt-12 text-center">
@@ -460,7 +570,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cases.map((caseItem, index) => (
               <div
                 key={index}
@@ -506,6 +616,60 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          <div className="md:hidden">
+            <Swiper
+              modules={[EffectCards, Pagination]}
+              effect="cards"
+              grabCursor={true}
+              pagination={{ clickable: true }}
+              className="!pb-12 w-full max-w-sm mx-auto"
+            >
+              {cases.map((caseItem, index) => (
+                <SwiperSlide key={index}>
+                  <div className="relative h-[480px]">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-2xl opacity-60 animate-gradient bg-[length:200%_200%]" />
+                    <div className="relative h-full bg-gradient-to-br from-card via-card to-primary/5 rounded-3xl border-2 border-accent/30 overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-2xl" />
+                      
+                      <div className="relative p-6 flex flex-col h-full">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center shadow-lg shadow-accent/20">
+                            <Icon name={caseItem.icon} className="h-7 w-7 text-white" />
+                          </div>
+                          <Badge variant="outline" className="text-xs border-accent/30">{caseItem.category}</Badge>
+                        </div>
+                        
+                        <h3 className="text-xl font-bold mb-3 text-foreground">
+                          {caseItem.title}
+                        </h3>
+                        
+                        <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">
+                          {caseItem.description}
+                        </p>
+                        
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-2 text-sm bg-accent/5 p-3 rounded-xl">
+                            <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center">
+                              <Icon name="DollarSign" className="h-4 w-4 text-accent" />
+                            </div>
+                            <span className="font-bold text-foreground">{caseItem.amount}</span>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-accent/10 via-primary/5 to-accent/5 border-2 border-accent/20 p-3 rounded-xl">
+                            <div className="flex items-start gap-2">
+                              <Icon name="CheckCircle2" className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                              <p className="text-sm font-semibold text-foreground">{caseItem.result}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
           
           <div className="mt-12 text-center">
             <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5">
@@ -530,8 +694,8 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
+          {(() => {
+            const testimonials = [
               {
                 name: 'Анна Соколова',
                 role: 'Владелец ООО',
@@ -574,37 +738,59 @@ const Index = () => {
                 rating: 5,
                 avatar: '👨'
               }
-            ].map((testimonial, index) => (
-              <div key={index} className="group relative">
-                <div className="absolute -inset-1 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500" />
-                <div className="relative h-full bg-card p-8 rounded-3xl border-2 border-border hover:border-accent/50 transition-all hover:shadow-xl">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-2xl shadow-lg">
-                      {testimonial.avatar}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-foreground">{testimonial.name}</h4>
-                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-1 mb-4">
-                    {Array(testimonial.rating).fill(0).map((_, i) => (
-                      <Icon key={i} name="Star" className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                    ))}
-                  </div>
-                  
-                  <p className="text-muted-foreground leading-relaxed italic">
-                    "{testimonial.text}"
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+            ];
+            
+            return (
+              <>
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  breakpoints={{
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                  }}
+                  navigation
+                  pagination={{ clickable: true }}
+                  autoplay={{ delay: 4000, disableOnInteraction: false }}
+                  className="!pb-12"
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="group relative h-full">
+                        <div className="absolute -inset-1 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500" />
+                        <div className="relative h-full bg-card p-6 rounded-3xl border-2 border-border hover:border-accent/50 transition-all hover:shadow-xl min-h-[280px] flex flex-col">
+                          <div className="flex items-start gap-3 mb-4">
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-xl shadow-lg flex-shrink-0">
+                              {testimonial.avatar}
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-foreground text-sm">{testimonial.name}</h4>
+                              <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex gap-1 mb-3">
+                            {Array(testimonial.rating).fill(0).map((_, i) => (
+                              <Icon key={i} name="Star" className="h-3 w-3 text-yellow-500 fill-yellow-500" />
+                            ))}
+                          </div>
+                          
+                          <p className="text-sm text-muted-foreground leading-relaxed italic flex-grow">
+                            "{testimonial.text}"
+                          </p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </>
+            );
+          })()}
         </div>
       </section>
 
-      <section id="benefits" className="py-24 relative bg-muted/30 overflow-hidden">
+      <section id="benefits" className="py-24 relative bg-background overflow-hidden">
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
         <div className="container relative z-10">
@@ -618,7 +804,100 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {(() => {
+            const benefits = [
+              {
+                icon: 'Shield',
+                title: 'Гарантия результата',
+                description: 'Работаем на результат. Если не выиграем — вернём деньги',
+                color: 'from-blue-500 to-cyan-500'
+              },
+              {
+                icon: 'Clock',
+                title: 'Быстрое решение',
+                description: 'Оперативно реагируем на запросы, держим в курсе 24/7',
+                color: 'from-purple-500 to-pink-500'
+              },
+              {
+                icon: 'Wallet',
+                title: 'Прозрачные цены',
+                description: 'Фиксируем стоимость в договоре, никаких скрытых платежей',
+                color: 'from-green-500 to-emerald-500'
+              },
+              {
+                icon: 'Award',
+                title: '10 лет опыта',
+                description: 'Более 300 успешных дел, работаем с 2015 года',
+                color: 'from-orange-500 to-red-500'
+              },
+              {
+                icon: 'Users',
+                title: 'Личный подход',
+                description: 'Каждый клиент получает персонального юриста',
+                color: 'from-indigo-500 to-blue-500'
+              },
+              {
+                icon: 'Zap',
+                title: 'Инновации',
+                description: 'Telegram-боты для мгновенного получения выписок',
+                color: 'from-yellow-500 to-orange-500'
+              }
+            ];
+
+            return (
+              <>
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="group relative">
+                      <div className={`absolute -inset-1 bg-gradient-to-br ${benefit.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500`} />
+                      <div className="relative h-full bg-card p-8 rounded-3xl border-2 border-border hover:border-accent/50 transition-all hover:shadow-2xl">
+                        <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-xl`}>
+                          <Icon name={benefit.icon} className="h-8 w-8 text-white" />
+                        </div>
+                        <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="md:hidden">
+                  <Swiper
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={20}
+                    slidesPerView={1.2}
+                    centeredSlides={true}
+                    navigation
+                    pagination={{ clickable: true }}
+                    className="!pb-12"
+                  >
+                    {benefits.map((benefit, index) => (
+                      <SwiperSlide key={index}>
+                        <div className="relative h-full">
+                          <div className={`absolute -inset-1 bg-gradient-to-br ${benefit.color} rounded-3xl blur-xl opacity-60`} />
+                          <div className="relative h-full bg-card p-6 rounded-3xl border-2 border-accent/30 min-h-[220px]">
+                            <div className={`w-14 h-14 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-4 shadow-xl`}>
+                              <Icon name={benefit.icon} className="h-7 w-7 text-white" />
+                            </div>
+                            <h3 className="text-lg font-bold mb-2 text-foreground">
+                              {benefit.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {benefit.description}
+                            </p>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              </>
+            );
+          })()}
             {[
               {
                 icon: 'Shield',
