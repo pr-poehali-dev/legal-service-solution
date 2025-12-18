@@ -986,8 +986,8 @@ const Index = () => {
         </>
       );
     })()}
-        </div>
-      </section>
+      </div>
+    </section>
 
       <section id="contact" className="py-24 relative overflow-hidden bg-background">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
