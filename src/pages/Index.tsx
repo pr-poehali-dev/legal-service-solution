@@ -983,9 +983,9 @@ const Index = () => {
               ))}
             </Swiper>
           </div>
-              </>
-            );
-          })()}
+        </>
+      );
+    })()}
         </div>
       </section>
 
