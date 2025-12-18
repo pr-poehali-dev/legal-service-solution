@@ -21,268 +21,276 @@ const Index = () => {
     setFormData({ name: '', phone: '', email: '', message: '' });
   };
 
-  const services = [
-    {
-      icon: 'Scale',
-      title: 'Гражданское право',
-      description: 'Защита имущественных и личных неимущественных прав',
-      features: ['Договоры', 'Наследство', 'Недвижимость']
-    },
+  const practices = [
     {
       icon: 'Building2',
       title: 'Корпоративное право',
-      description: 'Юридическое сопровождение бизнеса',
-      features: ['Регистрация', 'Реорганизация', 'M&A сделки']
+      description: 'M&A, реструктуризация, корпоративное управление',
+      cases: '120+ сделок'
     },
     {
-      icon: 'Briefcase',
+      icon: 'Landmark',
       title: 'Арбитражные споры',
-      description: 'Представительство в судах всех инстанций',
-      features: ['Иски', 'Апелляции', 'Банкротство']
+      description: 'Защита интересов в судах всех инстанций',
+      cases: '200+ выигранных дел'
     },
     {
-      icon: 'FileText',
-      title: 'Договорное право',
-      description: 'Разработка и экспертиза договоров',
-      features: ['Подготовка', 'Анализ', 'Сопровождение']
+      icon: 'FileCheck',
+      title: 'Налоговое право',
+      description: 'Налоговое планирование и споры с ФНС',
+      cases: '5 млрд ₽ защищено'
+    },
+    {
+      icon: 'Scale',
+      title: 'Разрешение споров',
+      description: 'Медиация, арбитраж, судебная защита',
+      cases: '85% досудебных урегулирований'
     },
     {
       icon: 'Users',
       title: 'Трудовое право',
-      description: 'Защита прав работников и работодателей',
-      features: ['Споры', 'Консультации', 'Документы']
+      description: 'Сопровождение HR-процессов и трудовые споры',
+      cases: '300+ компаний'
     },
     {
-      icon: 'Home',
-      title: 'Семейное право',
-      description: 'Решение семейных правовых вопросов',
-      features: ['Развод', 'Алименты', 'Опека']
-    }
-  ];
-
-  const workSteps = [
-    {
-      number: '01',
-      title: 'Консультация',
-      description: 'Бесплатный анализ вашей ситуации и оценка перспектив'
-    },
-    {
-      number: '02',
-      title: 'Стратегия',
-      description: 'Разработка оптимального плана действий с учетом всех нюансов'
-    },
-    {
-      number: '03',
-      title: 'Реализация',
-      description: 'Профессиональное выполнение всех необходимых юридических действий'
-    },
-    {
-      number: '04',
-      title: 'Результат',
-      description: 'Достижение поставленных целей и защита ваших интересов'
-    }
-  ];
-
-  const bots = [
-    {
-      icon: 'MessageSquare',
-      title: 'Юрист-консультант',
-      description: 'Отвечает на вопросы 24/7',
-      status: 'Онлайн'
-    },
-    {
-      icon: 'FileCheck',
-      title: 'Проверка документов',
-      description: 'Автоматический анализ договоров',
-      status: 'Доступно'
-    },
-    {
-      icon: 'Calculator',
-      title: 'Калькулятор расходов',
-      description: 'Расчет судебных издержек',
-      status: 'Бета'
+      icon: 'Shield',
+      title: 'Антимонопольное право',
+      description: 'Защита от ФАС и сопровождение проверок',
+      cases: '50+ защит в год'
     }
   ];
 
   const testimonials = [
     {
-      name: 'Анна Петрова',
-      company: 'ООО "ТехноПром"',
-      text: 'Команда юристов помогла нам выиграть сложный арбитражный спор. Профессионализм на высшем уровне!',
+      name: 'Алексей Морозов',
+      position: 'Генеральный директор',
+      company: 'ООО "ТехноЛогистика"',
+      text: 'Команда Пугин и партнеры помогла успешно завершить сделку M&A на сумму 800 млн рублей. Высочайший уровень экспертизы.',
       rating: 5
     },
     {
-      name: 'Михаил Соколов',
-      company: 'Предприниматель',
-      text: 'Отличное сопровождение сделки по покупке недвижимости. Все документы подготовлены безупречно.',
+      name: 'Мария Соколова',
+      position: 'Финансовый директор',
+      company: 'Группа компаний "Интеграл"',
+      text: 'Выиграли налоговый спор на 150 млн рублей благодаря блестящей стратегии юристов. Рекомендую!',
       rating: 5
     },
     {
-      name: 'Елена Иванова',
-      company: 'Частное лицо',
-      text: 'Помогли решить семейный спор. Благодарна за чуткость и профессионализм.',
+      name: 'Дмитрий Волков',
+      position: 'Председатель правления',
+      company: 'АО "СтройИнвест"',
+      text: 'Профессиональное сопровождение арбитражного спора от первой инстанции до кассации. Победили!',
       rating: 5
-    }
-  ];
-
-  const cases = [
-    {
-      title: 'Взыскание 15 млн рублей',
-      category: 'Арбитраж',
-      description: 'Успешно представили интересы клиента в споре о невыполнении обязательств по контракту',
-      result: 'Победа в суде первой инстанции'
-    },
-    {
-      title: 'Регистрация холдинга',
-      category: 'Корпоративное право',
-      description: 'Полное юридическое сопровождение создания холдинговой структуры',
-      result: 'Структура создана за 2 недели'
-    },
-    {
-      title: 'Защита прав собственности',
-      category: 'Недвижимость',
-      description: 'Оспаривание незаконной сделки и возврат недвижимости законному владельцу',
-      result: 'Имущество возвращено клиенту'
     }
   ];
 
   const blogPosts = [
     {
-      title: 'Новые изменения в Гражданском кодексе РФ',
+      title: 'Новые правила валютного контроля: что изменилось для бизнеса',
       date: '15 декабря 2024',
-      category: 'Законодательство',
-      excerpt: 'Обзор ключевых изменений, которые вступили в силу с 1 декабря 2024 года...'
+      category: 'Валютное регулирование',
+      readTime: '8 мин',
+      excerpt: 'Разбираем ключевые изменения в валютном законодательстве и их влияние на внешнеэкономическую деятельность компаний.'
     },
     {
-      title: 'Как правильно составить договор купли-продажи',
+      title: 'Корпоративные конфликты: превентивные меры защиты',
       date: '10 декабря 2024',
-      category: 'Практика',
-      excerpt: 'Пошаговая инструкция и важные моменты, на которые стоит обратить внимание...'
+      category: 'Корпоративное право',
+      readTime: '12 мин',
+      excerpt: 'Как защитить бизнес от корпоративных захватов и конфликтов между акционерами. Практические рекомендации.'
     },
     {
-      title: 'Защита бизнеса: топ-5 юридических рисков',
+      title: 'Налоговая реконструкция: риски и возможности',
       date: '5 декабря 2024',
-      category: 'Бизнес',
-      excerpt: 'Рассказываем о самых распространенных ошибках предпринимателей...'
+      category: 'Налоговое право',
+      readTime: '10 мин',
+      excerpt: 'Анализируем судебную практику применения налоговой реконструкции и способы минимизации рисков.'
+    }
+  ];
+
+  const bots = [
+    {
+      icon: 'Bot',
+      title: 'Юридический ассистент',
+      description: 'Первичная консультация по вашему вопросу 24/7',
+      status: 'Доступен'
+    },
+    {
+      icon: 'FileSearch',
+      title: 'Анализ договоров',
+      description: 'Проверка договоров на риски за 5 минут',
+      status: 'Бета-тест'
+    },
+    {
+      icon: 'Calculator',
+      title: 'Калькулятор издержек',
+      description: 'Расчет судебных расходов и госпошлины',
+      status: 'Доступен'
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Icon name="Scale" className="h-8 w-8 text-accent" />
-            <span className="text-2xl font-bold">ЮрЭксперт</span>
+        <div className="container flex h-20 items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+              <span className="text-2xl font-bold text-white">П</span>
+            </div>
+            <div>
+              <div className="text-xl font-bold">Пугин и партнеры</div>
+              <div className="text-xs text-muted-foreground">Юридическая компания</div>
+            </div>
           </div>
-          <nav className="hidden md:flex gap-6">
-            <a href="#services" className="text-sm font-medium hover:text-accent transition-colors">Услуги</a>
-            <a href="#how-we-work" className="text-sm font-medium hover:text-accent transition-colors">Как мы работаем</a>
-            <a href="#bots" className="text-sm font-medium hover:text-accent transition-colors">Наши боты</a>
+          <nav className="hidden lg:flex gap-8">
+            <a href="#practices" className="text-sm font-medium hover:text-accent transition-colors">Практики</a>
+            <a href="#how-we-work" className="text-sm font-medium hover:text-accent transition-colors">Процесс</a>
+            <a href="#bots" className="text-sm font-medium hover:text-accent transition-colors">Боты</a>
             <a href="#testimonials" className="text-sm font-medium hover:text-accent transition-colors">Отзывы</a>
             <a href="#cases" className="text-sm font-medium hover:text-accent transition-colors">Кейсы</a>
             <a href="#blog" className="text-sm font-medium hover:text-accent transition-colors">Блог</a>
             <a href="#contact" className="text-sm font-medium hover:text-accent transition-colors">Контакты</a>
           </nav>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Icon name="Phone" className="mr-2 h-4 w-4" />
-            +7 (495) 123-45-67
+          <Button className="bg-accent hover:bg-accent/90">
+            Консультация
           </Button>
         </div>
       </header>
 
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90 -z-10" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30 -z-10" />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-accent -z-10" />
+        <div className="absolute inset-0 opacity-10 -z-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center text-primary-foreground animate-fade-in">
-            <Badge className="mb-4 bg-accent text-accent-foreground">Юридические услуги премиум-класса</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Решение юридических вопросов любой сложности
+          <div className="max-w-4xl animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8 border border-white/20">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-white text-sm">Работаем с 2008 года</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+              Решаем сложные<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                юридические задачи
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90">
-              Мы обеспечим вам безупречные документы, экспертные консультации и полную защиту ваших прав
+            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl">
+              Комплексное сопровождение бизнеса, арбитражные споры и корпоративные сделки любой сложности
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg">
-                <Icon name="MessageCircle" className="mr-2 h-5 w-5" />
-                Получить консультацию
+            <div className="flex flex-wrap gap-4 mb-12">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8">
+                <Icon name="Phone" className="mr-2 h-5 w-5" />
+                +7 (495) 120-30-40
               </Button>
-              <Button size="lg" variant="outline" className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10 text-lg">
-                <Icon name="FileText" className="mr-2 h-5 w-5" />
-                Наши услуги
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8">
+                Наши практики
+                <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
               </Button>
             </div>
-            <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-accent">15+</div>
-                <div className="text-sm text-primary-foreground/80">лет опыта</div>
+                <div className="text-4xl font-bold text-white mb-1">16</div>
+                <div className="text-sm text-white/70">лет на рынке</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-accent">98%</div>
-                <div className="text-sm text-primary-foreground/80">выигранных дел</div>
+                <div className="text-4xl font-bold text-white mb-1">500+</div>
+                <div className="text-sm text-white/70">успешных дел</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-accent">500+</div>
-                <div className="text-sm text-primary-foreground/80">довольных клиентов</div>
+                <div className="text-4xl font-bold text-white mb-1">15 млрд ₽</div>
+                <div className="text-sm text-white/70">защищено активов</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-white mb-1">92%</div>
+                <div className="text-sm text-white/70">положительных решений</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="services" className="py-20 bg-muted/30">
+      <section id="practices" className="py-24 relative">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Наши услуги</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Комплексная юридическая поддержка</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Профессиональная помощь в решении любых правовых вопросов
+          <div className="max-w-2xl mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Наши практики</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Экспертиза в ключевых областях права</h2>
+            <p className="text-lg text-muted-foreground">
+              Специализируемся на сложных делах, требующих глубокой экспертизы и индивидуального подхода
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon name={service.icon} className="h-6 w-6 text-accent" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {practices.map((practice, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-all" />
+                <div className="relative">
+                  <div className="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Icon name={practice.icon} className="h-8 w-8 text-accent" />
                   </div>
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm">
-                        <Icon name="Check" className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                  <h3 className="text-2xl font-bold mb-3">{practice.title}</h3>
+                  <p className="text-muted-foreground mb-4">{practice.description}</p>
+                  <div className="flex items-center gap-2 text-sm font-medium text-accent">
+                    <Icon name="TrendingUp" className="h-4 w-4" />
+                    {practice.cases}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="how-we-work" className="py-20">
+      <section id="how-we-work" className="py-24 bg-muted/30">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Процесс работы</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Как мы работаем</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Прозрачный и эффективный процесс решения ваших задач
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Как мы работаем</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Четыре шага к результату</h2>
+            <p className="text-lg text-muted-foreground">
+              Проверенная методология ведения дел от первой консультации до успешного завершения
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {workSteps.map((step, index) => (
+          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                step: '01',
+                title: 'Анализ',
+                description: 'Глубокое изучение вашей ситуации, документов и перспектив дела',
+                icon: 'Search'
+              },
+              {
+                step: '02',
+                title: 'Стратегия',
+                description: 'Разработка индивидуальной стратегии с учетом всех рисков и возможностей',
+                icon: 'Target'
+              },
+              {
+                step: '03',
+                title: 'Действия',
+                description: 'Реализация стратегии: переговоры, подготовка документов, судебная защита',
+                icon: 'Zap'
+              },
+              {
+                step: '04',
+                title: 'Победа',
+                description: 'Достижение поставленных целей и максимально выгодного результата',
+                icon: 'Trophy'
+              }
+            ].map((item, index) => (
               <div key={index} className="relative">
-                <div className="text-6xl font-bold text-accent/20 mb-4">{step.number}</div>
-                <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
-                {index < workSteps.length - 1 && (
-                  <Icon name="ArrowRight" className="hidden lg:block absolute top-8 -right-4 h-6 w-6 text-accent/50" />
+                <div className="bg-card p-8 rounded-2xl border-2 border-accent/20 hover:border-accent transition-all duration-300 h-full">
+                  <div className="text-6xl font-bold text-accent/20 mb-4">{item.step}</div>
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <Icon name={item.icon} className="h-6 w-6 text-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </div>
+                {index < 3 && (
+                  <Icon name="ArrowRight" className="hidden md:block absolute top-1/2 -right-4 h-6 w-6 text-accent/50 -translate-y-1/2" />
                 )}
               </div>
             ))}
@@ -290,57 +298,66 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="bots" className="py-20 bg-muted/30">
+      <section id="bots" className="py-24">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Цифровые помощники</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Наши боты</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Современные технологии для вашего удобства
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Цифровые инструменты</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии для вашего удобства</h2>
+            <p className="text-lg text-muted-foreground">
+              Используем современные решения для повышения скорости и качества сервиса
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {bots.map((bot, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon name={bot.icon} className="h-8 w-8 text-accent" />
-                  </div>
-                  <CardTitle>{bot.title}</CardTitle>
-                  <CardDescription>{bot.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Badge variant="secondary">{bot.status}</Badge>
-                </CardContent>
-              </Card>
+              <div
+                key={index}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity blur-xl" />
+                <Card className="relative border-2 border-border group-hover:border-accent transition-all duration-300">
+                  <CardHeader className="text-center pb-4">
+                    <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                      <Icon name={bot.icon} className="h-10 w-10 text-white" />
+                    </div>
+                    <CardTitle className="text-xl">{bot.title}</CardTitle>
+                    <CardDescription className="text-base">{bot.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <Badge className="bg-accent/10 text-accent border-accent/30">{bot.status}</Badge>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="testimonials" className="py-20">
+      <section id="testimonials" className="py-24 bg-muted/30">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Отзывы клиентов</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Что говорят о нас</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Реальные отзывы наших довольных клиентов
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Отзывы клиентов</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Нам доверяют лидеры рынка</h2>
+            <p className="text-lg text-muted-foreground">
+              Более 200 компаний выбрали нас своим надежным юридическим партнером
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-accent">
                 <CardHeader>
-                  <div className="flex items-center gap-1 mb-2">
+                  <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" className="h-4 w-4 fill-accent text-accent" />
+                      <Icon key={i} name="Star" className="h-5 w-5 fill-accent text-accent" />
                     ))}
                   </div>
                   <CardTitle className="text-lg">{testimonial.name}</CardTitle>
-                  <CardDescription>{testimonial.company}</CardDescription>
+                  <CardDescription className="text-sm">
+                    <div className="font-medium">{testimonial.position}</div>
+                    <div>{testimonial.company}</div>
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground italic">"{testimonial.text}"</p>
+                  <p className="text-sm text-muted-foreground italic leading-relaxed">"{testimonial.text}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -348,52 +365,85 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="cases" className="py-20 bg-muted/30">
+      <section id="cases" className="py-24 relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 -z-10" />
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Наши достижения</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Успешные кейсы</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Примеры решенных дел наших клиентов
+          <div className="max-w-2xl mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Наши достижения</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Успешные кейсы</h2>
+            <p className="text-lg text-muted-foreground">
+              Реальные примеры побед наших клиентов в сложнейших делах
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {cases.map((caseItem, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <Badge className="w-fit mb-2" variant="outline">{caseItem.category}</Badge>
-                  <CardTitle className="text-xl">{caseItem.title}</CardTitle>
-                  <CardDescription>{caseItem.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="bg-accent/10 border-l-4 border-accent p-3 rounded">
-                    <p className="text-sm font-medium text-accent-foreground">
-                      <Icon name="Trophy" className="inline h-4 w-4 mr-1" />
-                      {caseItem.result}
-                    </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Защита от доначисления НДС на 450 млн ₽',
+                category: 'Налоговое право',
+                description: 'Оспорили решение ФНС о доначислении НДС. Победа в суде первой инстанции и апелляции.',
+                result: '450 млн ₽ экономии клиента',
+                icon: 'Shield'
+              },
+              {
+                title: 'Сопровождение M&A сделки 2,5 млрд ₽',
+                category: 'M&A',
+                description: 'Полное юридическое сопровождение покупки доли в крупной логистической компании.',
+                result: 'Сделка закрыта за 45 дней',
+                icon: 'Handshake'
+              },
+              {
+                title: 'Взыскание 180 млн ₽ долга',
+                category: 'Арбитражные споры',
+                description: 'Успешно взыскали задолженность по контракту через арбитраж и исполнительное производство.',
+                result: '100% возврат средств',
+                icon: 'CircleDollarSign'
+              }
+            ].map((caseItem, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-br from-card to-card/80 rounded-2xl p-8 border-2 border-border hover:border-accent transition-all duration-300 hover:shadow-2xl"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-2xl -z-10" />
+                <Badge className="mb-4" variant="outline">{caseItem.category}</Badge>
+                <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Icon name={caseItem.icon} className="h-7 w-7 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{caseItem.title}</h3>
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{caseItem.description}</p>
+                <div className="bg-accent/10 border-l-4 border-accent p-4 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <Icon name="CheckCircle2" className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <p className="text-sm font-semibold text-foreground">{caseItem.result}</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="blog" className="py-20">
+      <section id="blog" className="py-24 bg-muted/30">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Блог</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Полезные статьи</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Актуальная информация о законодательстве и юридической практике
+          <div className="max-w-2xl mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Экспертный блог</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Аналитика и новости права</h2>
+            <p className="text-lg text-muted-foreground">
+              Практические рекомендации и анализ изменений законодательства от наших экспертов
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 cursor-pointer group">
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border-2 hover:border-accent">
+                <div className="h-2 bg-gradient-to-r from-accent to-primary" />
                 <CardHeader>
-                  <Badge className="w-fit mb-2" variant="secondary">{post.category}</Badge>
-                  <CardTitle className="text-xl group-hover:text-accent transition-colors">
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant="secondary">{post.category}</Badge>
+                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                      <Icon name="Clock" className="h-3 w-3" />
+                      {post.readTime}
+                    </span>
+                  </div>
+                  <CardTitle className="text-xl group-hover:text-accent transition-colors leading-tight">
                     {post.title}
                   </CardTitle>
                   <CardDescription className="flex items-center gap-2">
@@ -402,11 +452,11 @@ const Index = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{post.excerpt}</p>
-                  <Button variant="link" className="p-0 mt-4 text-accent">
-                    Читать далее
-                    <Icon name="ArrowRight" className="ml-2 h-4 w-4" />
-                  </Button>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{post.excerpt}</p>
+                  <div className="flex items-center text-accent font-medium text-sm group-hover:gap-3 gap-2 transition-all">
+                    Читать статью
+                    <Icon name="ArrowRight" className="h-4 w-4" />
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -414,53 +464,64 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 bg-primary text-primary-foreground">
+      <section id="contact" className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-accent -z-10" />
+        <div className="absolute inset-0 opacity-10 -z-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 animate-fade-in">
-              <Badge className="mb-4 bg-accent text-accent-foreground">Свяжитесь с нами</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Получите бесплатную консультацию</h2>
-              <p className="text-lg text-primary-foreground/90">
-                Оставьте заявку, и мы свяжемся с вами в течение 15 минут
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-white/20 text-white border-white/30">Свяжитесь с нами</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Бесплатная консультация</h2>
+              <p className="text-xl text-white/90">
+                Оставьте заявку — мы перезвоним в течение 30 минут и проведем первичный анализ вашей ситуации
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-primary-foreground/10 border-primary-foreground/20">
+              <Card className="bg-white/10 border-white/20 backdrop-blur-lg">
                 <CardHeader>
-                  <CardTitle className="text-primary-foreground">Контактная информация</CardTitle>
+                  <CardTitle className="text-white text-2xl">Наши контакты</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 text-primary-foreground/90">
-                  <div className="flex items-start gap-3">
-                    <Icon name="Phone" className="h-5 w-5 mt-1 text-accent" />
+                <CardContent className="space-y-6 text-white/90">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon name="Phone" className="h-6 w-6 text-white" />
+                    </div>
                     <div>
-                      <p className="font-medium">Телефон</p>
-                      <p>+7 (495) 123-45-67</p>
-                      <p>+7 (495) 123-45-68</p>
+                      <p className="font-semibold text-white mb-1">Телефон</p>
+                      <p className="text-lg">+7 (495) 120-30-40</p>
+                      <p>+7 (495) 120-30-41</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Icon name="Mail" className="h-5 w-5 mt-1 text-accent" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon name="Mail" className="h-6 w-6 text-white" />
+                    </div>
                     <div>
-                      <p className="font-medium">Email</p>
-                      <p>info@jurexpert.ru</p>
-                      <p>support@jurexpert.ru</p>
+                      <p className="font-semibold text-white mb-1">Email</p>
+                      <p>info@puginpartners.ru</p>
+                      <p>office@puginpartners.ru</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Icon name="MapPin" className="h-5 w-5 mt-1 text-accent" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon name="MapPin" className="h-6 w-6 text-white" />
+                    </div>
                     <div>
-                      <p className="font-medium">Адрес</p>
-                      <p>Москва, ул. Тверская, д. 10, офис 501</p>
-                      <p>Пн-Пт: 9:00 - 19:00, Сб: 10:00 - 16:00</p>
+                      <p className="font-semibold text-white mb-1">Офис</p>
+                      <p>Москва, Пресненская наб., 12</p>
+                      <p>Башня Федерация, 42 этаж</p>
+                      <p className="mt-2 text-sm">Пн-Пт: 9:00 - 20:00, Сб: 10:00 - 17:00</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-white border-0 shadow-2xl">
                 <CardHeader>
-                  <CardTitle>Форма обратной связи</CardTitle>
-                  <CardDescription>Заполните форму и мы вам перезвоним</CardDescription>
+                  <CardTitle className="text-2xl">Оставьте заявку</CardTitle>
+                  <CardDescription className="text-base">Мы свяжемся с вами в ближайшее время</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -470,6 +531,7 @@ const Index = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required
+                        className="h-12"
                       />
                     </div>
                     <div>
@@ -479,6 +541,7 @@ const Index = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         required
+                        className="h-12"
                       />
                     </div>
                     <div>
@@ -488,6 +551,7 @@ const Index = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         required
+                        className="h-12"
                       />
                     </div>
                     <div>
@@ -499,10 +563,13 @@ const Index = () => {
                         required
                       />
                     </div>
-                    <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                      <Icon name="Send" className="mr-2 h-4 w-4" />
+                    <Button type="submit" className="w-full h-12 bg-accent hover:bg-accent/90 text-lg">
+                      <Icon name="Send" className="mr-2 h-5 w-5" />
                       Отправить заявку
                     </Button>
+                    <p className="text-xs text-muted-foreground text-center">
+                      Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                    </p>
                   </form>
                 </CardContent>
               </Card>
@@ -511,53 +578,61 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 border-t bg-muted/30">
+      <footer className="py-16 border-t bg-muted/30">
         <div className="container">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Icon name="Scale" className="h-6 w-6 text-accent" />
-                <span className="text-xl font-bold">ЮрЭксперт</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                  <span className="text-xl font-bold text-white">П</span>
+                </div>
+                <div>
+                  <div className="font-bold">Пугин и партнеры</div>
+                  <div className="text-xs text-muted-foreground">Юридическая компания</div>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Профессиональные юридические услуги с гарантией результата
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Профессиональные юридические услуги для бизнеса с 2008 года
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Услуги</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-accent transition-colors">Гражданское право</a></li>
+              <h4 className="font-semibold mb-4">Практики</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-accent transition-colors">Корпоративное право</a></li>
                 <li><a href="#" className="hover:text-accent transition-colors">Арбитражные споры</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Договорное право</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Налоговое право</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Трудовое право</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Компания</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-accent transition-colors">О нас</a></li>
                 <li><a href="#" className="hover:text-accent transition-colors">Команда</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Отзывы</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors">Карьера</a></li>
                 <li><a href="#" className="hover:text-accent transition-colors">Контакты</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Соцсети</h4>
-              <div className="flex gap-3">
-                <a href="#" className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors">
-                  <Icon name="Phone" className="h-5 w-5 text-accent" />
+              <h4 className="font-semibold mb-4">Следите за нами</h4>
+              <div className="flex gap-3 mb-6">
+                <a href="#" className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center hover:bg-accent/20 transition-colors">
+                  <Icon name="Linkedin" className="h-5 w-5 text-accent" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors">
-                  <Icon name="Mail" className="h-5 w-5 text-accent" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors">
-                  <Icon name="MessageCircle" className="h-5 w-5 text-accent" />
+                <a href="#" className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center hover:bg-accent/20 transition-colors">
+                  <Icon name="Send" className="h-5 w-5 text-accent" />
                 </a>
               </div>
+              <p className="text-xs text-muted-foreground">
+                Подписывайтесь на наши каналы для получения актуальной правовой информации
+              </p>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>© 2024 ЮрЭксперт. Все права защищены.</p>
+          <div className="pt-8 border-t text-center">
+            <p className="text-sm text-muted-foreground">
+              © 2024 Пугин и партнеры. Все права защищены. | 
+              <a href="#" className="hover:text-accent transition-colors ml-1">Политика конфиденциальности</a>
+            </p>
           </div>
         </div>
       </footer>
