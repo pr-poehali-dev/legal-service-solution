@@ -96,25 +96,72 @@ const Index = () => {
     { value: '100%', label: 'гарантия', description: 'Результата' }
   ];
 
+  const cases = [
+    {
+      title: 'Взыскание долга 8,5 млн ₽',
+      category: 'Арбитражные споры',
+      description: 'Успешно взыскали задолженность по договору поставки через арбитражный суд',
+      result: 'Полное взыскание + проценты',
+      icon: 'CircleDollarSign',
+      amount: '8,5 млн ₽'
+    },
+    {
+      title: 'Защита от банкротства',
+      category: 'Корпоративное право',
+      description: 'Отстояли интересы собственника при попытке рейдерского захвата через процедуру банкротства',
+      result: 'Бизнес сохранен',
+      icon: 'Shield',
+      amount: '120 млн ₽ активов'
+    },
+    {
+      title: 'Раздел имущества супругов',
+      category: 'Семейное право',
+      description: 'Добились справедливого раздела имущества с учетом вклада каждого супруга',
+      result: 'Клиент получил 65%',
+      icon: 'Scale',
+      amount: '45 млн ₽'
+    },
+    {
+      title: 'Оспаривание сделки с недвижимостью',
+      category: 'Недвижимость',
+      description: 'Признали сделку купли-продажи квартиры недействительной из-за нарушений',
+      result: 'Возврат квартиры клиенту',
+      icon: 'Home',
+      amount: '12 млн ₽'
+    },
+    {
+      title: 'Трудовой спор с работодателем',
+      category: 'Трудовое право',
+      description: 'Восстановили на работе незаконно уволенного сотрудника с выплатой компенсации',
+      result: 'Восстановление + 2,3 млн',
+      icon: 'Briefcase',
+      amount: '2,3 млн ₽'
+    },
+    {
+      title: 'Регистрация холдинговой структуры',
+      category: 'Регистрация бизнеса',
+      description: 'Создали оптимальную корпоративную структуру для группы компаний',
+      result: 'Оформлено за 10 дней',
+      icon: 'Building2',
+      amount: '7 компаний'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-20 items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="relative w-12 h-12">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-xl blur-sm opacity-50" />
-              <div className="relative w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-2xl font-bold text-white">П</span>
-              </div>
-            </div>
-            <div>
-              <div className="text-xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Пугин и партнеры</div>
-              <div className="text-xs text-muted-foreground">С 2015 года • Гарантия результата</div>
-            </div>
+            <img 
+              src="https://cdn-ru.bitrix24.ru/b26317548/landing/3d6/3d6a5576d30030f1b39f073d86b8c3dd/logopugin3_photoroom_1x.png" 
+              alt="Пугин и партнеры" 
+              className="h-14 w-auto"
+            />
           </div>
           <nav className="hidden lg:flex gap-8">
             <a href="#services" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Услуги</a>
             <a href="#how-we-work" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Процесс</a>
+            <a href="#cases" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Кейсы</a>
             <a href="#bots" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Боты</a>
             <a href="#contact" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Контакты</a>
           </nav>
@@ -124,13 +171,21 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-background">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
+          <div className="relative h-full w-full">
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/80 to-background z-10" />
+            <img 
+              src="https://cdn-ru.bitrix24.ru/b26317548/landing/729/729082975a5bcde7c7538c6ced035df2/advogado_embacado_de_vista_frontal_trabalhando_fotor_20250716104132_2x_1x.jpg"
+              alt="Юрист за работой"
+              className="h-full w-full object-cover opacity-60"
+            />
+          </div>
+        </div>
         
-        <div className="container relative z-10">
-          <div className="max-w-4xl animate-fade-in">
+        <div className="container relative z-20">
+          <div className="max-w-3xl animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-8 border border-accent/20">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
               <span className="text-sm font-medium text-foreground">Работаем с 2015 года • 10 лет успешной практики</span>
@@ -355,7 +410,76 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-24 relative overflow-hidden bg-background">
+      <section id="cases" className="py-24 relative bg-background overflow-hidden">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl" />
+        
+        <div className="container relative z-10">
+          <div className="max-w-2xl mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Успешные кейсы</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Реальные победы наших клиентов
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Примеры дел, которые мы успешно довели до победного завершения
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cases.map((caseItem, index) => (
+              <div
+                key={index}
+                className="group relative"
+              >
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500" />
+                <div className="relative h-full bg-card rounded-3xl border-2 border-border hover:border-accent/50 transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-2xl" />
+                  
+                  <div className="relative p-6 flex flex-col h-full">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon name={caseItem.icon} className="h-7 w-7 text-accent" />
+                      </div>
+                      <Badge variant="outline" className="text-xs">{caseItem.category}</Badge>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+                      {caseItem.title}
+                    </h3>
+                    
+                    <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">
+                      {caseItem.description}
+                    </p>
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-sm">
+                        <Icon name="DollarSign" className="h-4 w-4 text-accent" />
+                        <span className="font-semibold text-foreground">{caseItem.amount}</span>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-accent/10 to-primary/10 border-l-4 border-accent p-3 rounded-lg">
+                        <div className="flex items-start gap-2">
+                          <Icon name="CheckCircle2" className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                          <p className="text-xs font-semibold text-foreground">{caseItem.result}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5">
+              Посмотреть все кейсы
+              <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-24 relative overflow-hidden bg-muted/30">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -502,18 +626,11 @@ const Index = () => {
         <div className="container">
           <div className="grid md:grid-cols-4 gap-12 mb-8">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="relative w-10 h-10">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-lg blur-sm opacity-50" />
-                  <div className="relative w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
-                    <span className="text-xl font-bold text-white">П</span>
-                  </div>
-                </div>
-                <div>
-                  <div className="font-bold text-foreground">Пугин и партнеры</div>
-                  <div className="text-xs text-muted-foreground">С 2015 года</div>
-                </div>
-              </div>
+              <img 
+                src="https://cdn-ru.bitrix24.ru/b26317548/landing/3d6/3d6a5576d30030f1b39f073d86b8c3dd/logopugin3_photoroom_1x.png" 
+                alt="Пугин и партнеры" 
+                className="h-12 w-auto mb-4"
+              />
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Юридические услуги с гарантией результата
               </p>
