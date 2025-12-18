@@ -175,13 +175,45 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
         <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
           <div className="relative h-full w-full">
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/80 to-background z-10" />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/50 to-background z-10" />
             <img 
               src="https://cdn-ru.bitrix24.ru/b26317548/landing/729/729082975a5bcde7c7538c6ced035df2/advogado_embacado_de_vista_frontal_trabalhando_fotor_20250716104132_2x_1x.jpg"
               alt="Юрист за работой"
-              className="h-full w-full object-cover opacity-60"
+              className="h-full w-full object-cover opacity-90"
             />
           </div>
+        </div>
+        
+        <div className="fixed right-8 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col gap-4">
+          <a 
+            href="https://t.me/yourusername" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative w-14 h-14 bg-gradient-to-br from-[#229ED9] to-[#0088cc] rounded-2xl flex items-center justify-center shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300"
+          >
+            <div className="absolute -inset-1 bg-gradient-to-br from-[#229ED9] to-[#0088cc] rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-300" />
+            <Icon name="Send" className="h-6 w-6 text-white relative z-10" />
+          </a>
+          
+          <a 
+            href="https://wa.me/74232001020" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative w-14 h-14 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-2xl flex items-center justify-center shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300"
+          >
+            <div className="absolute -inset-1 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-300" />
+            <Icon name="MessageCircle" className="h-6 w-6 text-white relative z-10" />
+          </a>
+          
+          <a 
+            href="mailto:info@puginpartners.ru" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300"
+          >
+            <div className="absolute -inset-1 bg-gradient-to-br from-accent to-primary rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-300" />
+            <Icon name="Mail" className="h-6 w-6 text-white relative z-10" />
+          </a>
         </div>
         
         <div className="container relative z-20">
