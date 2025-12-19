@@ -369,12 +369,12 @@ const Index = () => {
         
         <div className="container relative z-20">
           <div className="max-w-3xl animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-8 border border-accent/20">
+            <div className="inline-flex items-center gap-2 bg-accent/10 px-3 py-2 rounded-full mb-6 md:mb-8 border border-accent/20">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-foreground">Работаем с 2015 года • 10 лет успешной практики</span>
+              <span className="text-xs md:text-sm font-medium text-foreground break-words">Работаем с 2015 года • 10 лет успешной практики</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight break-words">
               <span className="text-foreground">Юридические услуги</span>
               <br />
               <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
@@ -382,18 +382,18 @@ const Index = () => {
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-muted-foreground max-w-2xl break-words">
               Комплексное юридическое сопровождение бизнеса и частных лиц. Более 300 довольных клиентов
             </p>
             
-            <div className="flex flex-wrap gap-4 mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-lg px-8 shadow-xl shadow-accent/20">
-                <Icon name="Phone" className="mr-2 h-5 w-5" />
-                +7 (423) 200-10-20
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mb-8 md:mb-16">
+              <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-base md:text-lg px-6 md:px-8 shadow-xl shadow-accent/20 w-full sm:w-auto">
+                <Icon name="Phone" className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                <span className="break-words">+7 (423) 200-10-20</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5 text-lg px-8">
+              <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5 text-base md:text-lg px-6 md:px-8 w-full sm:w-auto">
                 Наши услуги
-                <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
+                <Icon name="ArrowRight" className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </div>
             
@@ -404,12 +404,12 @@ const Index = () => {
                   className="relative group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
-                  <div className="relative bg-card/50 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/50 transition-all">
-                    <div className="text-4xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-1">
+                  <div className="relative bg-card/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-border/50 hover:border-accent/50 transition-all">
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-1 break-words">
                       {stat.value}
                     </div>
-                    <div className="text-sm font-medium text-foreground mb-0.5">{stat.label}</div>
-                    <div className="text-xs text-muted-foreground">{stat.description}</div>
+                    <div className="text-xs md:text-sm font-medium text-foreground mb-0.5 break-words">{stat.label}</div>
+                    <div className="text-[10px] md:text-xs text-muted-foreground break-words">{stat.description}</div>
                   </div>
                 </div>
               ))}
@@ -420,12 +420,12 @@ const Index = () => {
 
       <section id="services" className="py-24 relative bg-muted/30">
         <div className="container">
-          <div className="max-w-2xl mb-16 text-center mx-auto">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Наши услуги</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div className="max-w-2xl mb-12 md:mb-16 text-center mx-auto px-4">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 text-xs md:text-sm break-words">Наши услуги</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground break-words">
               Полный спектр юридических услуг
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
               От регистрации бизнеса до судебных споров — решаем задачи любой сложности
             </p>
           </div>
@@ -442,15 +442,15 @@ const Index = () => {
                     <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-accent/20">
                       <Icon name={service.icon} className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed">{service.description}</p>
+                    <h3 className="text-lg md:text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors break-words">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed break-words">{service.description}</p>
                     <ul className="space-y-2.5">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start text-sm text-muted-foreground">
                           <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mr-2.5 flex-shrink-0 mt-0.5">
                             <Icon name="Check" className="h-3 w-3 text-accent" />
                           </div>
-                          <span>{feature}</span>
+                          <span className="break-words">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -480,15 +480,15 @@ const Index = () => {
                         <div className="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
                           <Icon name={service.icon} className="h-7 w-7 text-white" />
                         </div>
-                        <h3 className="text-lg font-bold mb-2 text-foreground">{service.title}</h3>
-                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{service.description}</p>
+                        <h3 className="text-base md:text-lg font-bold mb-2 text-foreground break-words">{service.title}</h3>
+                        <p className="text-xs md:text-sm text-muted-foreground mb-4 leading-relaxed break-words">{service.description}</p>
                         <ul className="space-y-2">
                           {service.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start text-xs text-muted-foreground">
                               <div className="w-4 h-4 rounded-full bg-accent/10 flex items-center justify-center mr-2 flex-shrink-0 mt-0.5">
                                 <Icon name="Check" className="h-2.5 w-2.5 text-accent" />
                               </div>
-                              <span>{feature}</span>
+                              <span className="break-words">{feature}</span>
                             </li>
                           ))}
                         </ul>
@@ -513,12 +513,12 @@ const Index = () => {
       <section id="how-we-work" className="py-24 relative overflow-hidden bg-background">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl -z-10" />
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Как мы работаем</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16 px-4">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 text-xs md:text-sm break-words">Как мы работаем</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground break-words">
               Простой путь к решению
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
               От первого звонка до победы в деле — прозрачный процесс работы
             </p>
           </div>
@@ -573,8 +573,8 @@ const Index = () => {
                           <div className="text-5xl font-bold text-accent/20">{item.step}</div>
                         </div>
                         <div className="hidden lg:block text-6xl font-bold text-accent/20 mb-4">{item.step}</div>
-                        <h3 className="text-2xl font-bold mb-3 text-foreground">{item.title}</h3>
-                        <p className="text-muted-foreground">{item.description}</p>
+                        <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground break-words">{item.title}</h3>
+                        <p className="text-sm md:text-base text-muted-foreground break-words">{item.description}</p>
                       </div>
                     </div>
                   </div>
@@ -587,12 +587,12 @@ const Index = () => {
 
       <section id="bots" className="py-24 bg-muted/30">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Telegram боты</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16 px-4">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 text-xs md:text-sm break-words">Telegram боты</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground break-words">
               Получите документы мгновенно
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
               Наши Telegram-боты работают 24/7 для быстрого получения выписок
             </p>
           </div>
@@ -611,11 +611,11 @@ const Index = () => {
                       <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-2xl shadow-accent/20">
                         <Icon name={bot.icon} className="h-12 w-12 text-white" />
                       </div>
-                      <CardTitle className="text-2xl text-foreground">{bot.title}</CardTitle>
-                      <div className="inline-block bg-muted px-3 py-1 rounded-full text-sm font-mono text-accent my-2">
+                      <CardTitle className="text-xl md:text-2xl text-foreground break-words">{bot.title}</CardTitle>
+                      <div className="inline-block bg-muted px-3 py-1 rounded-full text-xs md:text-sm font-mono text-accent my-2 break-all">
                         {bot.handle}
                       </div>
-                      <CardDescription className="text-base text-muted-foreground">{bot.description}</CardDescription>
+                      <CardDescription className="text-sm md:text-base text-muted-foreground break-words">{bot.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="text-center pb-6">
                       <Badge className="bg-green-500/10 text-green-600 border-green-500/30 px-4 py-1">
@@ -640,12 +640,12 @@ const Index = () => {
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl" />
         
         <div className="container relative z-10">
-          <div className="max-w-2xl mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Успешные кейсы</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div className="max-w-2xl mb-12 md:mb-16 px-4">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 text-xs md:text-sm break-words">Успешные кейсы</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground break-words">
               Реальные победы наших клиентов
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
               Примеры дел, которые мы успешно довели до победного завершения
             </p>
           </div>
@@ -665,14 +665,14 @@ const Index = () => {
                       <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-accent/20">
                         <Icon name={caseItem.icon} className="h-8 w-8 text-white" />
                       </div>
-                      <Badge variant="outline" className="text-xs border-accent/30">{caseItem.category}</Badge>
+                      <Badge variant="outline" className="text-xs border-accent/30 break-words max-w-full">{caseItem.category}</Badge>
                     </div>
                     
-                    <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-accent transition-colors">
+                    <h3 className="text-lg md:text-xl font-bold mb-4 text-foreground group-hover:text-accent transition-colors break-words">
                       {caseItem.title}
                     </h3>
                     
-                    <p className="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed">
+                    <p className="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed break-words">
                       {caseItem.description}
                     </p>
                     
@@ -681,13 +681,13 @@ const Index = () => {
                         <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
                           <Icon name="DollarSign" className="h-4 w-4 text-accent" />
                         </div>
-                        <span className="font-bold text-foreground">{caseItem.amount}</span>
+                        <span className="font-bold text-foreground break-words">{caseItem.amount}</span>
                       </div>
                       
                       <div className="bg-gradient-to-br from-accent/10 via-primary/5 to-accent/5 border-2 border-accent/20 p-4 rounded-xl">
                         <div className="flex items-start gap-3">
                           <Icon name="CheckCircle2" className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                          <p className="text-sm font-semibold text-foreground">{caseItem.result}</p>
+                          <p className="text-sm font-semibold text-foreground break-words">{caseItem.result}</p>
                         </div>
                       </div>
                     </div>
@@ -717,14 +717,14 @@ const Index = () => {
                           <div className="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center shadow-lg shadow-accent/20">
                             <Icon name={caseItem.icon} className="h-7 w-7 text-white" />
                           </div>
-                          <Badge variant="outline" className="text-xs border-accent/30">{caseItem.category}</Badge>
+                          <Badge variant="outline" className="text-xs border-accent/30 break-words max-w-full">{caseItem.category}</Badge>
                         </div>
                         
-                        <h3 className="text-xl font-bold mb-3 text-foreground">
+                        <h3 className="text-lg md:text-xl font-bold mb-3 text-foreground break-words">
                           {caseItem.title}
                         </h3>
                         
-                        <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">
+                        <p className="text-xs md:text-sm text-muted-foreground mb-4 flex-grow leading-relaxed break-words">
                           {caseItem.description}
                         </p>
                         
@@ -733,13 +733,13 @@ const Index = () => {
                             <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center">
                               <Icon name="DollarSign" className="h-4 w-4 text-accent" />
                             </div>
-                            <span className="font-bold text-foreground">{caseItem.amount}</span>
+                            <span className="font-bold text-foreground break-words">{caseItem.amount}</span>
                           </div>
                           
                           <div className="bg-gradient-to-br from-accent/10 via-primary/5 to-accent/5 border-2 border-accent/20 p-3 rounded-xl">
                             <div className="flex items-start gap-2">
                               <Icon name="CheckCircle2" className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                              <p className="text-sm font-semibold text-foreground">{caseItem.result}</p>
+                              <p className="text-sm font-semibold text-foreground break-words">{caseItem.result}</p>
                             </div>
                           </div>
                         </div>
@@ -764,12 +764,12 @@ const Index = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl" />
         
         <div className="container relative z-10">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Отзывы клиентов</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16 px-4">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 text-xs md:text-sm break-words">Отзывы клиентов</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground break-words">
               Что говорят о нас клиенты
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
               Реальные отзывы людей, которым мы помогли решить их юридические вопросы
             </p>
           </div>
@@ -845,8 +845,8 @@ const Index = () => {
                               {testimonial.avatar}
                             </div>
                             <div>
-                              <h4 className="font-bold text-foreground text-sm">{testimonial.name}</h4>
-                              <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                              <h4 className="font-bold text-foreground text-sm break-words">{testimonial.name}</h4>
+                              <p className="text-xs text-muted-foreground break-words">{testimonial.role}</p>
                             </div>
                           </div>
                           
@@ -856,7 +856,7 @@ const Index = () => {
                             ))}
                           </div>
                           
-                          <p className="text-sm text-muted-foreground leading-relaxed italic flex-grow">
+                          <p className="text-xs md:text-sm text-muted-foreground leading-relaxed italic flex-grow break-words">
                             "{testimonial.text}"
                           </p>
                         </div>
@@ -874,12 +874,12 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
         <div className="container relative z-10">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Почему мы?</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16 px-4">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 text-xs md:text-sm break-words">Почему мы?</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground break-words">
               Преимущества работы с нами
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
               Мы создали сервис, где клиент получает максимум результата и комфорта
             </p>
           </div>
@@ -934,10 +934,10 @@ const Index = () => {
                         <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-xl`}>
                           <Icon name={benefit.icon} className="h-8 w-8 text-white" />
                         </div>
-                        <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+                        <h3 className="text-lg md:text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors break-words">
                           {benefit.title}
                         </h3>
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed break-words">
                           {benefit.description}
                         </p>
                       </div>
@@ -963,10 +963,10 @@ const Index = () => {
                             <div className={`w-14 h-14 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-4 shadow-xl`}>
                               <Icon name={benefit.icon} className="h-7 w-7 text-white" />
                             </div>
-                            <h3 className="text-lg font-bold mb-2 text-foreground">
+                            <h3 className="text-base md:text-lg font-bold mb-2 text-foreground break-words">
                               {benefit.title}
                             </h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
+                            <p className="text-xs md:text-sm text-muted-foreground leading-relaxed break-words">
                               {benefit.description}
                             </p>
                           </div>
@@ -988,12 +988,12 @@ const Index = () => {
         
         <div className="container relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Свяжитесь с нами</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            <div className="text-center mb-8 md:mb-12 px-4">
+              <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 text-xs md:text-sm break-words">Свяжитесь с нами</Badge>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground break-words">
                 Бесплатная консультация
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground break-words">
                 Оставьте заявку или позвоните — ответим на все вопросы в течение 15 минут
               </p>
             </div>
@@ -1012,7 +1012,7 @@ const Index = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <a href="tel:+74232001020" className="text-2xl font-bold text-accent hover:text-primary transition-colors">
+                      <a href="tel:+74232001020" className="text-xl md:text-2xl font-bold text-accent hover:text-primary transition-colors break-words">
                         +7 (423) 200-10-20
                       </a>
                       <p className="text-sm text-muted-foreground mt-2">Звоните в любое время</p>
@@ -1032,7 +1032,7 @@ const Index = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <a href="mailto:info@puginpartners.ru" className="text-xl font-semibold text-accent hover:text-primary transition-colors">
+                      <a href="mailto:info@puginpartners.ru" className="text-base md:text-xl font-semibold text-accent hover:text-primary transition-colors break-all">
                         info@puginpartners.ru
                       </a>
                       <p className="text-sm text-muted-foreground mt-2">Ответим в течение часа</p>
@@ -1052,9 +1052,9 @@ const Index = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="text-muted-foreground">
-                      <p className="font-semibold mb-1 text-foreground">г. Владивосток</p>
-                      <p>ул. Океанский проспект, 17</p>
-                      <p className="text-sm mt-2">Пн-Пт: 9:00 - 19:00, Сб: 10:00 - 16:00</p>
+                      <p className="font-semibold mb-1 text-foreground break-words">г. Владивосток</p>
+                      <p className="break-words">ул. Океанский проспект, 17</p>
+                      <p className="text-xs md:text-sm mt-2 break-words">Пн-Пт: 9:00 - 19:00, Сб: 10:00 - 16:00</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -1064,8 +1064,8 @@ const Index = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition" />
                 <Card className="relative border-2 border-border shadow-2xl">
                   <CardHeader>
-                    <CardTitle className="text-2xl text-foreground">Оставьте заявку</CardTitle>
-                    <CardDescription className="text-base">Мы перезвоним в течение 15 минут</CardDescription>
+                    <CardTitle className="text-xl md:text-2xl text-foreground break-words">Оставьте заявку</CardTitle>
+                    <CardDescription className="text-sm md:text-base break-words">Мы перезвоним в течение 15 минут</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -1108,11 +1108,11 @@ const Index = () => {
                           className="border-2 focus:border-accent"
                         />
                       </div>
-                      <Button type="submit" className="w-full h-12 bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-lg shadow-xl shadow-accent/20">
-                        <Icon name="Send" className="mr-2 h-5 w-5" />
-                        Отправить заявку
+                      <Button type="submit" className="w-full h-12 bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-base md:text-lg shadow-xl shadow-accent/20">
+                        <Icon name="Send" className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                        <span className="break-words">Отправить заявку</span>
                       </Button>
-                      <p className="text-xs text-muted-foreground text-center">
+                      <p className="text-xs text-muted-foreground text-center break-words">
                         Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
                       </p>
                     </form>
@@ -1133,48 +1133,48 @@ const Index = () => {
                 alt="Пугин и партнеры" 
                 className="h-12 w-auto mb-4"
               />
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed break-words">
                 Юридические услуги с гарантией результата
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-foreground">Услуги</h4>
+              <h4 className="font-semibold mb-4 text-foreground break-words">Услуги</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-accent transition-colors">Судебная защита</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Регистрация бизнеса</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Недвижимость</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Семейные споры</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">Судебная защита</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">Регистрация бизнеса</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">Недвижимость</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">Семейные споры</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-foreground">Компания</h4>
+              <h4 className="font-semibold mb-4 text-foreground break-words">Компания</h4>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-accent transition-colors">О нас</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Команда</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Отзывы</a></li>
-                <li><a href="#" className="hover:text-accent transition-colors">Контакты</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">О нас</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">Команда</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">Отзывы</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors break-words">Контакты</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-foreground">Telegram боты</h4>
+              <h4 className="font-semibold mb-4 text-foreground break-words">Telegram боты</h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
-                    <Icon name="Bot" className="h-4 w-4" />
-                    @EGRN_GlavbuhBot
+                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors break-all">
+                    <Icon name="Bot" className="h-4 w-4 flex-shrink-0" />
+                    <span>@EGRN_GlavbuhBot</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
-                    <Icon name="Building" className="h-4 w-4" />
-                    @GlavbuhVL_BOT
+                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors break-all">
+                    <Icon name="Building" className="h-4 w-4 flex-shrink-0" />
+                    <span>@GlavbuhVL_BOT</span>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="pt-8 border-t border-border/40 text-center">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground break-words px-4">
               © 2024 Пугин и партнеры. Все права защищены.
             </p>
           </div>
