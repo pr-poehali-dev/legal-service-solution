@@ -13,6 +13,86 @@ import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  useEffect(() => {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "ЮрПро",
+      "description": "Комплексные юридические услуги для бизнеса: судебная защита, регистрация ООО/ИП, проверка контрагентов, налоговое право",
+      "url": "https://yoursite.ru",
+      "logo": "https://yoursite.ru/logo.png",
+      "image": "https://yoursite.ru/og-image.jpg",
+      "telephone": "+7-XXX-XXX-XX-XX",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "RU",
+        "addressLocality": "Москва"
+      },
+      "priceRange": "$$",
+      "foundingDate": "2015",
+      "slogan": "Защищаем интересы вашего бизнеса",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Россия"
+      },
+      "serviceType": [
+        "Судебная защита",
+        "Регистрация бизнеса",
+        "Проверка контрагентов",
+        "Налоговое право",
+        "Договоры и сделки"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Юридические услуги",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Судебная защита",
+              "description": "Представительство в судах, арбитражные споры, взыскание долгов"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Регистрация бизнеса",
+              "description": "ООО, ИП, НКО, АНО, фонды, ТСЖ, СНТ"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Проверка контрагентов",
+              "description": "Правовая экспертиза, аудит контрагентов, налоговые оговорки"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "300",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
