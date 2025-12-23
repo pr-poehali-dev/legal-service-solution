@@ -104,6 +104,7 @@ const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [consultationDialogOpen, setConsultationDialogOpen] = useState(false);
   const [casesDialogOpen, setCasesDialogOpen] = useState(false);
+  const [servicesDialogOpen, setServicesDialogOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -503,10 +504,62 @@ const Index = () => {
                 <Icon name="Phone" className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                 <span className="break-words">+7 (423) 200-10-20</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5 text-base md:text-lg px-6 md:px-8 w-full sm:w-auto">
-                Наши услуги
-                <Icon name="ArrowRight" className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </Button>
+              <Dialog open={servicesDialogOpen} onOpenChange={setServicesDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5 text-base md:text-lg px-6 md:px-8 w-full sm:w-auto">
+                    Наши услуги
+                    <Icon name="ArrowRight" className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl font-bold text-foreground">
+                      Наши юридические услуги
+                    </DialogTitle>
+                    <DialogDescription className="text-lg">
+                      Выберите услугу для получения бесплатной консультации
+                    </DialogDescription>
+                  </DialogHeader>
+                  
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                    {services.map((service, index) => (
+                      <div
+                        key={index}
+                        className="group relative cursor-pointer"
+                        onClick={() => {
+                          setServicesDialogOpen(false);
+                          handleServiceClick(service.title);
+                        }}
+                      >
+                        <div className="absolute -inset-1 bg-gradient-to-br from-accent via-primary to-accent rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-300" />
+                        <div className="relative h-full bg-card rounded-2xl border-2 border-border hover:border-accent/50 transition-all duration-300 p-6">
+                          <div className="flex flex-col h-full">
+                            <div className="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-accent/20">
+                              <Icon name={service.icon} className="h-7 w-7 text-white" />
+                            </div>
+                            <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-accent transition-colors">
+                              {service.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-grow">
+                              {service.description}
+                            </p>
+                            <ul className="space-y-2">
+                              {service.features.map((feature, idx) => (
+                                <li key={idx} className="flex items-start text-xs text-muted-foreground">
+                                  <div className="w-4 h-4 rounded-full bg-accent/10 flex items-center justify-center mr-2 flex-shrink-0 mt-0.5">
+                                    <Icon name="Check" className="h-2.5 w-2.5 text-accent" />
+                                  </div>
+                                  <span>{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
