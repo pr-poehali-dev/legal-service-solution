@@ -38,7 +38,7 @@ const Index = () => {
         "streetAddress": "Запорожская ул., 77, офис 634"
       },
       "priceRange": "$$",
-      "foundingDate": "2026",
+      "foundingDate": "2010",
       "slogan": "Защищаем интересы вашего бизнеса",
       "areaServed": {
         "@type": "Country",
@@ -198,7 +198,7 @@ const Index = () => {
   ];
 
   const stats = [
-    { value: '1+', label: 'год опыта', description: 'С 2026 года' },
+    { value: '15+', label: 'лет опыта', description: 'С 2010 года' },
     { value: '300+', label: 'клиентов', description: 'Довольны результатом' },
     { value: '96%', label: 'успеха', description: 'Выигранных дел' },
     { value: '100%', label: 'гарантия', description: 'Результата' }
@@ -487,7 +487,7 @@ const Index = () => {
           <div className="max-w-3xl animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-accent/10 px-3 py-2 rounded-full mb-6 md:mb-8 border border-accent/20">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-xs md:text-sm font-medium text-foreground break-words">Работаем с 2010 года • Новый уровень юридических услуг</span>
+              <span className="text-xs md:text-sm font-medium text-foreground break-words">Работаем с 2010 года • 15 лет успешной практики</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight break-words">
@@ -1164,7 +1164,7 @@ const Index = () => {
               {
                 icon: 'Award',
                 title: '10 лет опыта',
-                description: 'Более 300 успешных дел, работаем с 2026 года',
+                description: 'Более 300 успешных дел, работаем с 2010 года',
                 color: 'from-orange-500 to-red-500'
               },
               {
