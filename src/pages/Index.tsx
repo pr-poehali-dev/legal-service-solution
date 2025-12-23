@@ -11,6 +11,14 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 const Index = () => {
   useEffect(() => {
@@ -94,6 +102,9 @@ const Index = () => {
   }, []);
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [consultationDialogOpen, setConsultationDialogOpen] = useState(false);
+  const [casesDialogOpen, setCasesDialogOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -106,6 +117,12 @@ const Index = () => {
     console.log('Form submitted:', formData);
     alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
     setFormData({ name: '', phone: '', email: '', message: '' });
+    setConsultationDialogOpen(false);
+  };
+
+  const handleServiceClick = (title: string) => {
+    setSelectedService(title);
+    setConsultationDialogOpen(true);
   };
 
   const services = [
@@ -255,9 +272,104 @@ const Index = () => {
             <a href="#contact" className="text-sm font-medium text-foreground hover:text-accent transition-colors">Контакты</a>
           </nav>
           
-          <Button className="hidden lg:flex bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white shadow-lg">
-            Бесплатная консультация
-          </Button>
+          <Dialog open={consultationDialogOpen} onOpenChange={setConsultationDialogOpen}>
+            <DialogTrigger asChild>
+              <Button className="hidden lg:flex bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white shadow-lg">
+                Бесплатная консультация
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-2xl">
+              <DialogHeader>
+                <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  🎁 Специальное предложение!
+                </DialogTitle>
+                <DialogDescription className="text-lg mt-4">
+                  Получите бесплатную консультацию юриста прямо сейчас
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-6 rounded-xl border-2 border-accent/30 my-4">
+                <div className="flex items-center gap-3 mb-3">
+                  <Icon name="Gift" className="h-8 w-8 text-accent" />
+                  <h3 className="text-2xl font-bold text-foreground">Только сегодня!</h3>
+                </div>
+                <ul className="space-y-2 text-foreground">
+                  <li className="flex items-center gap-2">
+                    <Icon name="Check" className="h-5 w-5 text-accent flex-shrink-0" />
+                    <span className="font-semibold">30 минут с экспертом абсолютно бесплатно</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Icon name="Check" className="h-5 w-5 text-accent flex-shrink-0" />
+                    <span>Анализ вашей ситуации</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Icon name="Check" className="h-5 w-5 text-accent flex-shrink-0" />
+                    <span>План решения проблемы</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Icon name="Check" className="h-5 w-5 text-accent flex-shrink-0" />
+                    <span>Ответим в течение 15 минут</span>
+                  </li>
+                </ul>
+              </div>
+
+              {selectedService && (
+                <div className="bg-primary/5 p-4 rounded-lg mb-4">
+                  <p className="text-sm text-muted-foreground">Интересующая услуга:</p>
+                  <p className="font-semibold text-foreground">{selectedService}</p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <Input
+                    placeholder="Ваше имя"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                    className="h-12 border-2 focus:border-accent"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="tel"
+                    placeholder="Телефон"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    required
+                    className="h-12 border-2 focus:border-accent"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    className="h-12 border-2 focus:border-accent"
+                  />
+                </div>
+                <div>
+                  <Textarea
+                    placeholder="Опишите вашу ситуацию"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    rows={4}
+                    required
+                    className="border-2 focus:border-accent"
+                  />
+                </div>
+                <Button type="submit" className="w-full h-14 bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-lg shadow-xl">
+                  <Icon name="Sparkles" className="mr-2 h-5 w-5" />
+                  Получить бесплатную консультацию
+                </Button>
+                <p className="text-xs text-muted-foreground text-center">
+                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                </p>
+              </form>
+            </DialogContent>
+          </Dialog>
           
           <Button 
             variant="ghost" 
@@ -434,7 +546,8 @@ const Index = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative"
+                className="group relative cursor-pointer"
+                onClick={() => handleServiceClick(service.title)}
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-lg opacity-0 group-hover:opacity-60 transition duration-500 animate-gradient bg-[length:200%_200%]" />
                 <div className="relative h-full bg-gradient-to-br from-card via-card to-accent/5 p-8 rounded-3xl border-2 border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20">
@@ -444,7 +557,7 @@ const Index = () => {
                     </div>
                     <h3 className="text-lg md:text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors break-words">{service.title}</h3>
                     <p className="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed break-words">{service.description}</p>
-                    <ul className="space-y-2.5">
+                    <ul className="space-y-2.5 mb-4">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start text-sm text-muted-foreground">
                           <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mr-2.5 flex-shrink-0 mt-0.5">
@@ -454,6 +567,12 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-accent/50 text-accent hover:bg-accent hover:text-white mt-auto"
+                    >
+                      Получить консультацию
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -473,7 +592,7 @@ const Index = () => {
             >
               {services.map((service, index) => (
                 <SwiperSlide key={index}>
-                  <div className="group relative h-full">
+                  <div className="group relative h-full" onClick={() => handleServiceClick(service.title)}>
                     <div className="absolute -inset-0.5 bg-gradient-to-br from-accent via-primary to-accent rounded-3xl blur-lg opacity-60 animate-gradient bg-[length:200%_200%]" />
                     <div className="relative h-full bg-gradient-to-br from-card via-card to-accent/5 p-6 rounded-3xl border-2 border-accent/30">
                       <div className="flex flex-col h-full">
@@ -482,7 +601,7 @@ const Index = () => {
                         </div>
                         <h3 className="text-base md:text-lg font-bold mb-2 text-foreground break-words">{service.title}</h3>
                         <p className="text-xs md:text-sm text-muted-foreground mb-4 leading-relaxed break-words">{service.description}</p>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 mb-4">
                           {service.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start text-xs text-muted-foreground">
                               <div className="w-4 h-4 rounded-full bg-accent/10 flex items-center justify-center mr-2 flex-shrink-0 mt-0.5">
@@ -492,6 +611,12 @@ const Index = () => {
                             </li>
                           ))}
                         </ul>
+                        <Button 
+                          variant="outline" 
+                          className="w-full border-accent/50 text-accent hover:bg-accent hover:text-white mt-auto text-sm"
+                        >
+                          Получить консультацию
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -752,10 +877,82 @@ const Index = () => {
           </div>
           
           <div className="mt-12 text-center">
-            <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5">
-              Посмотреть все кейсы
-              <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
-            </Button>
+            <Dialog open={casesDialogOpen} onOpenChange={setCasesDialogOpen}>
+              <DialogTrigger asChild>
+                <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5">
+                  Посмотреть все кейсы
+                  <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle className="text-3xl font-bold text-foreground">
+                    Все наши успешные кейсы
+                  </DialogTitle>
+                  <DialogDescription className="text-lg">
+                    Детальная информация о делах, которые мы выиграли
+                  </DialogDescription>
+                </DialogHeader>
+                
+                <div className="grid md:grid-cols-2 gap-6 mt-6">
+                  {cases.map((caseItem, index) => (
+                    <div
+                      key={index}
+                      className="group relative"
+                    >
+                      <div className="absolute -inset-1 bg-gradient-to-br from-accent via-primary to-accent rounded-2xl blur-lg opacity-30" />
+                      <div className="relative h-full bg-card rounded-2xl border-2 border-border p-6">
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent/20">
+                            <Icon name={caseItem.icon} className="h-7 w-7 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <Badge variant="outline" className="text-xs border-accent/30 mb-2">{caseItem.category}</Badge>
+                            <h3 className="text-lg font-bold text-foreground mb-2">
+                              {caseItem.title}
+                            </h3>
+                          </div>
+                        </div>
+                        
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                          {caseItem.description}
+                        </p>
+                        
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3 bg-accent/5 p-3 rounded-lg">
+                            <Icon name="DollarSign" className="h-5 w-5 text-accent flex-shrink-0" />
+                            <div>
+                              <p className="text-xs text-muted-foreground">Сумма дела</p>
+                              <p className="font-bold text-foreground">{caseItem.amount}</p>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-accent/10 to-primary/10 border-2 border-accent/20 p-3 rounded-lg">
+                            <div className="flex items-start gap-2">
+                              <Icon name="CheckCircle2" className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-xs text-muted-foreground mb-1">Результат</p>
+                                <p className="text-sm font-semibold text-foreground">{caseItem.result}</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <Button 
+                            onClick={() => {
+                              setCasesDialogOpen(false);
+                              setConsultationDialogOpen(true);
+                            }}
+                            className="w-full bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 mt-2"
+                          >
+                            Обсудить мой случай
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>
