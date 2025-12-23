@@ -30,14 +30,15 @@ const Index = () => {
       "url": "https://yoursite.ru",
       "logo": "https://yoursite.ru/logo.png",
       "image": "https://yoursite.ru/og-image.jpg",
-      "telephone": "+7-XXX-XXX-XX-XX",
+      "telephone": "+79143408445",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "RU",
-        "addressLocality": "Москва"
+        "addressLocality": "Владивосток",
+        "streetAddress": "Запорожская ул., 77, офис 634"
       },
       "priceRange": "$$",
-      "foundingDate": "2015",
+      "foundingDate": "2026",
       "slogan": "Защищаем интересы вашего бизнеса",
       "areaServed": {
         "@type": "Country",
@@ -182,6 +183,7 @@ const Index = () => {
       icon: 'Bot',
       title: 'ЕГРН Бот',
       handle: '@EGRN_GlavbuhBot',
+      link: 'https://t.me/EGRN_GlavbuhBot',
       description: 'Мгновенные выписки из реестра недвижимости',
       status: 'Работает 24/7'
     },
@@ -189,13 +191,14 @@ const Index = () => {
       icon: 'Building',
       title: 'ЕГРЮЛ Бот',
       handle: '@GlavbuhVL_BOT',
+      link: 'https://t.me/GlavbuhVL_BOT',
       description: 'Проверка юридических лиц и ИП в один клик',
       status: 'Работает 24/7'
     }
   ];
 
   const stats = [
-    { value: '10+', label: 'лет опыта', description: 'С 2015 года' },
+    { value: '1+', label: 'год опыта', description: 'С 2026 года' },
     { value: '300+', label: 'клиентов', description: 'Довольны результатом' },
     { value: '96%', label: 'успеха', description: 'Выигранных дел' },
     { value: '100%', label: 'гарантия', description: 'Результата' }
@@ -460,7 +463,7 @@ const Index = () => {
           </a>
           
           <a 
-            href="https://wa.me/74232001020" 
+            href="https://wa.me/79143408445" 
             target="_blank" 
             rel="noopener noreferrer"
             className="group relative w-14 h-14 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-2xl flex items-center justify-center shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300"
@@ -470,13 +473,13 @@ const Index = () => {
           </a>
           
           <a 
-            href="mailto:info@puginpartners.ru" 
+            href="tel:+79143408445" 
             target="_blank" 
             rel="noopener noreferrer"
             className="group relative w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center shadow-xl hover:scale-110 hover:rotate-6 transition-all duration-300"
           >
             <div className="absolute -inset-1 bg-gradient-to-br from-accent to-primary rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-300" />
-            <Icon name="Mail" className="h-6 w-6 text-white relative z-10" />
+            <Icon name="Phone" className="h-6 w-6 text-white relative z-10" />
           </a>
         </div>
         
@@ -484,7 +487,7 @@ const Index = () => {
           <div className="max-w-3xl animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-accent/10 px-3 py-2 rounded-full mb-6 md:mb-8 border border-accent/20">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-xs md:text-sm font-medium text-foreground break-words">Работаем с 2015 года • 10 лет успешной практики</span>
+              <span className="text-xs md:text-sm font-medium text-foreground break-words">Работаем с 2026 года • Новый уровень юридических услуг</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight break-words">
@@ -500,10 +503,12 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mb-8 md:mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-base md:text-lg px-6 md:px-8 shadow-xl shadow-accent/20 w-full sm:w-auto">
-                <Icon name="Phone" className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-                <span className="break-words">+7 (423) 200-10-20</span>
-              </Button>
+              <a href="tel:+79143408445" className="w-full sm:w-auto">
+                <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white text-base md:text-lg px-6 md:px-8 shadow-xl shadow-accent/20 w-full">
+                  <Icon name="Phone" className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                  <span className="break-words">+7 (914) 340-84-45</span>
+                </Button>
+              </a>
               <Dialog open={servicesDialogOpen} onOpenChange={setServicesDialogOpen}>
                 <DialogTrigger asChild>
                   <Button size="lg" variant="outline" className="border-2 border-accent/30 text-foreground hover:bg-accent/5 text-base md:text-lg px-6 md:px-8 w-full sm:w-auto">
@@ -800,10 +805,12 @@ const Index = () => {
                         <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
                         {bot.status}
                       </Badge>
-                      <Button className="w-full mt-4 bg-accent hover:bg-accent/90 text-white">
-                        <Icon name="MessageCircle" className="mr-2 h-4 w-4" />
-                        Открыть в Telegram
-                      </Button>
+                      <a href={bot.link} target="_blank" rel="noopener noreferrer" className="block">
+                        <Button className="w-full mt-4 bg-accent hover:bg-accent/90 text-white">
+                          <Icon name="MessageCircle" className="mr-2 h-4 w-4" />
+                          Открыть в Telegram
+                        </Button>
+                      </a>
                     </CardContent>
                   </Card>
                 </div>
@@ -1157,7 +1164,7 @@ const Index = () => {
               {
                 icon: 'Award',
                 title: '10 лет опыта',
-                description: 'Более 300 успешных дел, работаем с 2015 года',
+                description: 'Более 300 успешных дел, работаем с 2026 года',
                 color: 'from-orange-500 to-red-500'
               },
               {
@@ -1262,8 +1269,8 @@ const Index = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <a href="tel:+74232001020" className="text-xl md:text-2xl font-bold text-accent hover:text-primary transition-colors break-words">
-                        +7 (423) 200-10-20
+                      <a href="tel:+79143408445" className="text-xl md:text-2xl font-bold text-accent hover:text-primary transition-colors break-words">
+                        +7 (914) 340-84-45
                       </a>
                       <p className="text-sm text-muted-foreground mt-2">Звоните в любое время</p>
                     </CardContent>
@@ -1282,8 +1289,8 @@ const Index = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <a href="mailto:info@puginpartners.ru" className="text-base md:text-xl font-semibold text-accent hover:text-primary transition-colors break-all">
-                        info@puginpartners.ru
+                      <a href="tel:+79143408445" className="text-base md:text-xl font-semibold text-accent hover:text-primary transition-colors break-all">
+                        +7 (914) 340-84-45
                       </a>
                       <p className="text-sm text-muted-foreground mt-2">Ответим в течение часа</p>
                     </CardContent>
@@ -1303,7 +1310,7 @@ const Index = () => {
                     </CardHeader>
                     <CardContent className="text-muted-foreground">
                       <p className="font-semibold mb-1 text-foreground break-words">г. Владивосток</p>
-                      <p className="break-words">ул. Океанский проспект, 17</p>
+                      <p className="break-words">Запорожская ул., 77, офис 634</p>
                       <p className="text-xs md:text-sm mt-2 break-words">Пн-Пт: 9:00 - 19:00, Сб: 10:00 - 16:00</p>
                     </CardContent>
                   </Card>
@@ -1409,13 +1416,13 @@ const Index = () => {
               <h4 className="font-semibold mb-4 text-foreground break-words">Telegram боты</h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors break-all">
+                  <a href="https://t.me/EGRN_GlavbuhBot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors break-all">
                     <Icon name="Bot" className="h-4 w-4 flex-shrink-0" />
                     <span>@EGRN_GlavbuhBot</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors break-all">
+                  <a href="https://t.me/GlavbuhVL_BOT" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors break-all">
                     <Icon name="Building" className="h-4 w-4 flex-shrink-0" />
                     <span>@GlavbuhVL_BOT</span>
                   </a>
@@ -1423,10 +1430,20 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-border/40 text-center">
-            <p className="text-xs md:text-sm text-muted-foreground break-words px-4">
-              © 2024 Пугин и партнеры. Все права защищены.
-            </p>
+          <div className="pt-8 border-t border-border/40">
+            <div className="text-center mb-4">
+              <p className="text-xs md:text-sm text-muted-foreground break-words px-4">
+                © 2026 Пугин и партнеры. Все права защищены.
+              </p>
+            </div>
+            <div className="text-center space-y-1">
+              <p className="text-xs md:text-sm text-muted-foreground break-words">
+                ИП ПУГИН ДМИТРИЙ АЛЕКСАНДРОВИЧ
+              </p>
+              <p className="text-xs text-muted-foreground/80 break-words">
+                ИНН: 253812279944 | ОГРНИП: 320253600061103
+              </p>
+            </div>
           </div>
         </div>
       </footer>
