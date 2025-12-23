@@ -240,8 +240,8 @@ const Index = () => {
         <div className="container flex h-20 items-center justify-between">
           <div className="flex items-center gap-3">
             <img 
-              src="https://cdn-ru.bitrix24.ru/b26317548/landing/0f1/0f1a35885eecbff82ff151d8ecf3499f/logopugin5_photoroom_1x.png" 
-              alt="Пугин и партнеры" 
+              src="https://cdn.poehali.dev/projects/81dc8db3-5b4b-4171-bc32-9b835381540c/files/aea0c567-3608-4123-8bd0-43b998796db6.jpg" 
+              alt="qweqwe" 
               className="h-12 md:h-16 w-auto"
             />
           </div>
@@ -1129,8 +1129,8 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-12 mb-8">
             <div>
               <img 
-                src="https://cdn-ru.bitrix24.ru/b26317548/landing/3d6/3d6a5576d30030f1b39f073d86b8c3dd/logopugin3_photoroom_1x.png" 
-                alt="Пугин и партнеры" 
+                src="https://cdn.poehali.dev/projects/81dc8db3-5b4b-4171-bc32-9b835381540c/files/aea0c567-3608-4123-8bd0-43b998796db6.jpg" 
+                alt="qweqwe" 
                 className="h-12 w-auto mb-4"
               />
               <p className="text-sm text-muted-foreground leading-relaxed break-words">
