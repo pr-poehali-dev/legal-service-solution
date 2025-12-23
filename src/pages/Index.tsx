@@ -1311,7 +1311,7 @@ const Index = () => {
                     <CardContent className="text-muted-foreground">
                       <p className="font-semibold mb-1 text-foreground break-words">г. Владивосток</p>
                       <p className="break-words">Запорожская ул., 77, офис 634</p>
-                      <p className="text-xs md:text-sm mt-2 break-words">Пн-Пт: 9:00 - 19:00, Сб: 10:00 - 16:00</p>
+                      <p className="text-xs md:text-sm mt-2 break-words">Пн-Пт: 9:00 - 19:00</p>
                     </CardContent>
                   </Card>
                 </div>
